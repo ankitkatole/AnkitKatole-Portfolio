@@ -51,7 +51,7 @@ const Home = () => {
             <div className="relative w-64 h-64 md:w-80 md:h-80">
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-secondary to-accent opacity-20 blur-md"></div>
               <div className="relative w-full h-full overflow-hidden border-4 border-white rounded-full shadow-xl dark:border-gray-800">
-                <img src="public/image.png" alt="Profile-image" className="object-cover w-full h-full" />
+                <img src="src/assets/Profilee.png" alt="Profile-image" className="object-cover w-full h-full" />
               </div>
             </div>
           </div>
