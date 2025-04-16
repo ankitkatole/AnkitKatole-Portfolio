@@ -36,14 +36,14 @@ const Navbar = ({ activeSection }) => {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
-      <nav className="container mx-auto px-6 py-4">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm dark:border-gray-800">
+      <nav className="container px-6 py-4 mx-auto">
         <div className="flex items-center justify-between">
           <div className="text-2xl font-bold">
-            <span className="bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">Portfolio</span>
+            <span className="text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text">Portfolio</span>
           </div>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="items-center hidden space-x-8 md:flex">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -61,13 +61,13 @@ const Navbar = ({ activeSection }) => {
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-                className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                className="p-2 transition-colors bg-gray-100 rounded-full dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
                 aria-label="Toggle theme"
               >
                 {theme === "dark" ? (
-                  <Sun className="h-5 w-5 text-yellow-500" />
+                  <Sun className="w-5 h-5 text-yellow-500" />
                 ) : (
-                  <Moon className="h-5 w-5 text-primary" />
+                  <Moon className="w-5 h-5 text-primary" />
                 )}
               </button>
             )}
@@ -77,28 +77,28 @@ const Navbar = ({ activeSection }) => {
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-                className="p-2 mr-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                className="p-2 mr-2 transition-colors bg-gray-100 rounded-full dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
                 aria-label="Toggle theme"
               >
                 {theme === "dark" ? (
-                  <Sun className="h-5 w-5 text-yellow-500" />
+                  <Sun className="w-5 h-5 text-yellow-500" />
                 ) : (
-                  <Moon className="h-5 w-5 text-primary" />
+                  <Moon className="w-5 h-5 text-primary" />
                 )}
               </button>
             )}
             <button
               onClick={toggleMenu}
-              className="p-2 rounded-md bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              className="p-2 transition-colors bg-gray-100 rounded-md dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-800">
+          <div className="py-4 mt-4 border-t border-gray-200 md:hidden dark:border-gray-800">
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <button

@@ -13,6 +13,7 @@ const About = () => {
     { name: "Git & GitHub", icon: "🔧" },
     { name: "REST APIs", icon: "🔌" },
     { name: "Solana Web3.js", icon: "🪙" },
+    { name: "Java", icon: "☕" },
   ];
 
 

@@ -21,15 +21,15 @@ const Home = () => {
         <div className="flex flex-col-reverse items-center justify-between gap-12 lg:flex-row">
           <div className="text-center lg:w-1/2 lg:text-left">
             <span className="inline-block px-4 py-2 mb-6 text-sm font-medium rounded-full bg-primary/10 text-primary">
-              FullStack Developer
+              {/* FullStack Developer */}
             </span>
             <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-              Hi, I'm <span className="text-primary">Ankit Katole</span>
+              Hi, I'm <span className="text-red-500 text-primary">Ankit Katole</span>
               <br />
               <span className="text-3xl md:text-4xl lg:text-5xl">FullStack Developer</span>
             </h1>
             <p className="max-w-2xl mx-auto mb-8 text-lg text-gray-600 md:text-xl dark:text-gray-400 lg:mx-0">
-            I craft scalable, user-centric web applications with modern JavaScript frameworks. Passionate about building clean, performant, and accessible digital solutions that drive real-world impact.
+              I craft scalable, user-centric web applications with modern JavaScript frameworks. Passionate about building clean, performant, and accessible digital solutions that drive real-world impact.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
               <button

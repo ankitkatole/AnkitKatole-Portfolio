@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "projects", "experience", "contact"]
+      const sections = ["home", "about","education", "projects", "experience", "contact"]
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -37,7 +37,7 @@ function App() {
 
   return (
     <ThemeProvider defaultTheme="dark">
-      <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+      <div className="min-h-screen text-gray-800 transition-colors duration-300 bg-white dark:bg-gray-900 dark:text-gray-200">
         <Navbar activeSection={activeSection} />
         <main>
           <Home />

@@ -65,67 +65,73 @@ const Contact = () => {
   const socialLinks = [
     {
       name: "LinkedIn",
-      icon: <Linkedin className="h-5 w-5" />,
+      icon: <Linkedin className="w-5 h-5" />,
       url: "https://www.linkedin.com/in/ankitkatole/",
       color: "bg-[#0077B5]/10 text-[#0077B5] hover:bg-[#0077B5] hover:text-white",
     },
     {
       name: "GitHub",
-      icon: <Github className="h-5 w-5" />,
+      icon: <Github className="w-5 h-5" />,
       url: "https://github.com/ankitkatole",
       color: "bg-[#333]/10 text-[#333] dark:text-white hover:bg-[#333] hover:text-white",
     },
     {
+      name: "Leetcode",
+      icon: <img src="/assets/Leetcode.png" alt="Leetcode" className="w-5 h-5" />,
+      url: "https://leetcode.com/ankitkatole/",
+      color: "text-[#FFA116] hover:text-primary",
+    },
+    {
       name: "Twitter",
-      icon: <Twitter className="h-5 w-5" />,
+      icon: <Twitter className="w-5 h-5" />,
       url: "https://x.com/ankxious",
       color: "bg-[#1DA1F2]/10 text-[#1DA1F2] hover:bg-[#1DA1F2] hover:text-white",
     },
     {
       name: "Email",
-      icon: <Mail className="h-5 w-5" />,
+      icon: <Mail className="w-5 h-5" />,
       url: "mailto:katoleankit06@gmail.com",
       color: "bg-secondary/10 text-secondary hover:bg-secondary hover:text-white",
     },
   ]
 
   return (
-    <section id="contact" className="py-20 relative">
-      <div className="absolute top-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-72 h-72 bg-secondary/5 rounded-full blur-3xl"></div>
+    <section id="contact" className="relative py-20">
+      <div className="absolute w-64 h-64 rounded-full top-20 right-10 bg-primary/5 blur-3xl"></div>
+      <div className="absolute rounded-full bottom-20 left-10 w-72 h-72 bg-secondary/5 blur-3xl"></div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+      <div className="container relative z-10 px-6 mx-auto">
+        <div className="mb-16 text-center">
+          <span className="inline-block px-3 py-1 mb-4 text-sm font-medium rounded-full bg-primary/10 text-primary">
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Contact Me</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
-          <p className="text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto">
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">Contact Me</h2>
+          <div className="w-20 h-1 mx-auto bg-gradient-to-r from-primary to-secondary"></div>
+          <p className="max-w-2xl mx-auto mt-4 text-gray-600 dark:text-gray-300">
             Have a project in mind or want to discuss potential opportunities? Feel free to reach out!
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div>
-            <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">Let's Talk</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-8">
+            <h3 className="mb-6 text-2xl font-semibold text-gray-800 dark:text-gray-100">Let's Talk</h3>
+            <p className="mb-8 text-gray-600 dark:text-gray-300">
               I'm currently open to freelance opportunities and interesting projects. Whether you have a question or
               just want to say hi, I'll try my best to get back to you!
             </p>
 
-            <div className="space-y-4 mb-8">
-              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
-                <h4 className="text-lg font-medium mb-2 text-primary">Email</h4>
+            <div className="mb-8 space-y-4">
+              <div className="p-4 bg-white border border-gray-100 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                <h4 className="mb-2 text-lg font-medium text-primary">Email</h4>
                 <p className="text-gray-600 dark:text-gray-300">katoleankit06@gmail.com</p>
               </div>
-              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
-                <h4 className="text-lg font-medium mb-2 text-secondary">Location</h4>
+              <div className="p-4 bg-white border border-gray-100 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                <h4 className="mb-2 text-lg font-medium text-secondary">Location</h4>
                 <p className="text-gray-600 dark:text-gray-300">Nagpur, Maharashtra, India</p>
               </div>
             </div>
 
             <div>
-              <h4 className="text-lg font-medium mb-4 text-gray-800 dark:text-gray-100">Connect with me</h4>
+              <h4 className="mb-4 text-lg font-medium text-gray-800 dark:text-gray-100">Connect with me</h4>
               <div className="flex space-x-4">
                 {socialLinks.map((link, index) => (
                   <a
@@ -143,16 +149,16 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 lg:p-8 border border-gray-100 dark:border-gray-700">
-            <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">Send a Message</h3>
+          <div className="p-6 bg-white border border-gray-100 shadow-md dark:bg-gray-800 rounded-xl lg:p-8 dark:border-gray-700">
+            <h3 className="mb-6 text-2xl font-semibold text-gray-800 dark:text-gray-100">Send a Message</h3>
             {submitSuccess ? (
-              <div className="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 p-4 rounded-lg mb-6">
+              <div className="p-4 mb-6 text-green-800 bg-green-100 rounded-lg dark:bg-green-900/30 dark:text-green-200">
                 Thank you for your message! I'll get back to you soon.
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
                 <div className="mb-6">
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  <label htmlFor="name" className="block mb-2 text-sm font-medium">
                     Name
                   </label>
                   <input
@@ -166,11 +172,11 @@ const Contact = () => {
                     } bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary`}
                     placeholder="Your name"
                   />
-                  {errors.name && <p className="mt-1 text-red-500 text-sm">{errors.name}</p>}
+                  {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
                 </div>
 
                 <div className="mb-6">
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <label htmlFor="email" className="block mb-2 text-sm font-medium">
                     Email
                   </label>
                   <input
@@ -184,11 +190,11 @@ const Contact = () => {
                     } bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary`}
                     placeholder="Your email"
                   />
-                  {errors.email && <p className="mt-1 text-red-500 text-sm">{errors.email}</p>}
+                  {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
                 </div>
 
                 <div className="mb-6">
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  <label htmlFor="message" className="block mb-2 text-sm font-medium">
                     Message
                   </label>
                   <textarea
@@ -202,19 +208,19 @@ const Contact = () => {
                     } bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary`}
                     placeholder="Your message"
                   ></textarea>
-                  {errors.message && <p className="mt-1 text-red-500 text-sm">{errors.message}</p>}
+                  {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message}</p>}
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center shadow-lg shadow-primary/20"
+                  className="flex items-center justify-center w-full px-6 py-3 font-medium text-white transition-all duration-300 rounded-lg shadow-lg bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-primary/20"
                 >
                   {isSubmitting ? (
                     <span>Sending...</span>
                   ) : (
                     <>
-                      <Send className="h-4 w-4 mr-2" />
+                      <Send className="w-4 h-4 mr-2" />
                       Send Message
                     </>
                   )}
