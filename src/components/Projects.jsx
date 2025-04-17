@@ -1,8 +1,32 @@
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Github, ExternalLink, X } from "lucide-react"
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.unobserve(entry.target)
+        }
+      },
+      { threshold: 0.1 },
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
 
   const projects = [
     {
@@ -15,7 +39,7 @@ const Projects = () => {
       demoUrl: "https://dev-auction.vercel.app/",
       longDescription:
         "DevAuction is a real-time auction platform featuring video conferencing via Zego Express Engine, real-time chat using Socket.IO, and secure user authentication through Google Sign-In. Designed for seamless and interactive bidding experiences.",
-      color: "from-blue-600 to-gray-600",
+      color: "from-primary to-accent",
     },
     {
       id: 2,
@@ -27,7 +51,7 @@ const Projects = () => {
       demoUrl: "https://soldrop-peach.vercel.app/",
       longDescription:
         "SolDrop is a decentralized airdrop solution for distributing Solana tokens. Built on Devnet, it integrates Unsafe Burner Wallet for quick wallet connections and uses @solana/web3.js for secure blockchain transactions.",
-      color: "from-blue-500 to-gray-500",
+      color: "from-secondary to-primary",
     },
     {
       id: 3,
@@ -39,10 +63,9 @@ const Projects = () => {
       demoUrl: "https://memoria-nexus.vercel.app/",
       longDescription:
         "Memoria Nexus combines diary logging, memory vaults, global story collaboration, and an AI chatbot. Key features include Empathy Exchange, geo-tagged Time-Travel Photo Archive, and Horizon—the built-in AI companion. Built to preserve stories and bridge generational gaps.",
-      color: "from-blue-500 to-gray-500",
+      color: "from-accent to-secondary",
     },
-  ];
-
+  ]
 
   const openProjectModal = (project) => {
     setSelectedProject(project)
@@ -55,15 +78,15 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className="relative py-20">
-      <div className="absolute w-64 h-64 rounded-full top-20 right-10 bg-primary/5 blur-3xl"></div>
-      <div className="absolute rounded-full bottom-20 left-10 w-72 h-72 bg-secondary/5 blur-3xl"></div>
+    <section id="projects" ref={sectionRef} className="relative py-20">
+      <div className="absolute w-64 h-64 rounded-full top-20 right-10 bg-primary/5 blur-3xl animate-pulse-slow"></div>
+      <div className="absolute rounded-full bottom-20 left-10 w-72 h-72 bg-secondary/5 blur-3xl animate-pulse-slow animate-delay-300"></div>
 
       <div className="container relative z-10 px-6 mx-auto">
-        <div className="mb-16 text-center">
-          <span className="inline-block px-3 py-1 mb-4 text-sm font-medium rounded-full bg-primary/10 text-primary">
-
-          </span>
+        <div
+          className={`mb-16 text-center transition-all duration-700 ${isVisible ? "opacity-100" : "opacity-0 translate-y-10"}`}
+        >
+          <span className="inline-block px-3 py-1 mb-4 text-sm font-medium rounded-full bg-primary/10 text-primary"></span>
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">Featured Projects</h2>
           <div className="w-20 h-1 mx-auto bg-gradient-to-r from-primary to-secondary"></div>
           <p className="max-w-2xl mx-auto mt-4 text-gray-600 dark:text-gray-300">
@@ -73,25 +96,32 @@ const Projects = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <div
               key={project.id}
-              className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:translate-y-[-5px] border border-gray-100 dark:border-gray-700"
+              className={`bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:translate-y-[-5px] border border-gray-100 dark:border-gray-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"}`}
+              style={{ transitionDelay: `${index * 200}ms` }}
             >
-              <div className="relative h-48 overflow-hidden">
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-80`}></div>
+              <div className="relative h-48 overflow-hidden group">
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-80 transition-all duration-500 group-hover:opacity-90`}
+                ></div>
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  className="object-cover w-full h-full transition-transform duration-500 mix-blend-overlay hover:scale-110"
+                  className="object-cover w-full h-full transition-transform duration-700 mix-blend-overlay group-hover:scale-110"
                 />
               </div>
               <div className="p-6">
                 <h3 className="mb-2 text-xl font-bold">{project.title}</h3>
                 <p className="h-12 mb-4 overflow-hidden text-gray-600 dark:text-gray-300">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.techStack.map((tech, index) => (
-                    <span key={index} className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary">
+                  {project.techStack.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="px-2 py-1 text-xs transition-all duration-300 rounded-full bg-primary/10 text-primary hover:bg-primary/20"
+                      style={{ transitionDelay: `${index * 100 + techIndex * 50}ms` }}
+                    >
                       {tech}
                     </span>
                   ))}
@@ -101,7 +131,7 @@ const Projects = () => {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-700 transition-colors dark:text-gray-300 hover:text-primary dark:hover:text-primary"
+                    className="text-gray-700 transition-all duration-300 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:scale-110"
                   >
                     <Github className="w-5 h-5" />
                   </a>
@@ -109,13 +139,13 @@ const Projects = () => {
                     href={project.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-700 transition-colors dark:text-gray-300 hover:text-primary dark:hover:text-primary"
+                    className="text-gray-700 transition-all duration-300 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:scale-110"
                   >
                     <ExternalLink className="w-5 h-5" />
                   </a>
                   <button
                     onClick={() => openProjectModal(project)}
-                    className="text-sm font-medium transition-colors text-primary hover:text-primary/80"
+                    className="text-sm font-medium transition-all duration-300 text-primary hover:text-primary/80 hover:underline"
                   >
                     View Details
                   </button>
@@ -127,8 +157,8 @@ const Projects = () => {
       </div>
 
       {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-          <div className="bg-white dark:bg-gray-800 rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
+          <div className="bg-white dark:bg-gray-800 rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto animate-fade-in">
             <div className="relative h-64 sm:h-80">
               <div className={`absolute inset-0 bg-gradient-to-br ${selectedProject.color} opacity-80`}></div>
               <img
@@ -138,7 +168,7 @@ const Projects = () => {
               />
               <button
                 onClick={closeProjectModal}
-                className="absolute p-2 text-white transition-colors rounded-full top-4 right-4 bg-black/50 hover:bg-black/70"
+                className="absolute p-2 text-white transition-all duration-300 rounded-full top-4 right-4 bg-black/50 hover:bg-black/70 hover:rotate-90"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -150,7 +180,11 @@ const Projects = () => {
                 <h4 className="mb-2 text-lg font-semibold">Technologies Used</h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.techStack.map((tech, index) => (
-                    <span key={index} className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary">
+                    <span
+                      key={index}
+                      className="px-3 py-1 text-sm transition-all duration-300 rounded-full bg-primary/10 text-primary hover:bg-primary/20"
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
                       {tech}
                     </span>
                   ))}
@@ -161,7 +195,7 @@ const Projects = () => {
                   href={selectedProject.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 font-medium text-white transition-colors bg-gray-800 rounded-lg dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600"
+                  className="flex items-center gap-2 px-4 py-2 font-medium text-white transition-all duration-300 bg-gray-800 rounded-lg dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 hover:scale-105"
                 >
                   <Github className="w-5 h-5" />
                   View Code
@@ -170,7 +204,7 @@ const Projects = () => {
                   href={selectedProject.demoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 font-medium text-white transition-colors rounded-lg bg-primary hover:bg-primary/90"
+                  className="flex items-center gap-2 px-4 py-2 font-medium text-white transition-all duration-300 rounded-lg bg-primary hover:bg-primary/90 hover:scale-105"
                 >
                   <ExternalLink className="w-5 h-5" />
                   Live Demo

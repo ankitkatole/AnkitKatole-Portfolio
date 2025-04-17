@@ -1,6 +1,14 @@
+
+import { useEffect, useState } from "react"
 import { Linkedin, Github, Twitter, Mail } from "lucide-react"
 
 const Footer = () => {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
@@ -38,12 +46,14 @@ const Footer = () => {
 
   return (
     <footer className="border-t border-gray-200 bg-gradient-to-r from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 dark:border-gray-800">
-      <div className="container px-6 py-8 mx-auto">
+      <div
+        className={`container px-6 py-8 mx-auto transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}
+      >
         <div className="flex flex-col items-center justify-between md:flex-row">
           <div className="mb-4 md:mb-0">
             <a
               href="#home"
-              className="text-xl font-bold text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text"
+              className="inline-block text-xl font-bold text-transparent transition-transform duration-300 bg-gradient-to-r from-primary to-secondary bg-clip-text hover:scale-105"
             >
               Ankit Katole
             </a>
@@ -57,7 +67,7 @@ const Footer = () => {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${link.color} transition-colors`}
+                className={`${link.color} transition-all duration-300 hover:scale-125`}
                 aria-label={link.name}
               >
                 {link.icon}
@@ -69,23 +79,6 @@ const Footer = () => {
             &copy; {currentYear} Ankit Katole. All rights reserved.
           </div>
         </div>
-
-        {/* <div className="pt-8 mt-8 border-t border-gray-200 dark:border-gray-700">
-          <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600 dark:text-gray-400">
-            <a href="#" className="transition-colors hover:text-primary">
-              Terms of Service
-            </a>
-            <a href="#" className="transition-colors hover:text-primary">
-              Privacy Policy
-            </a>
-            <a href="#" className="transition-colors hover:text-primary">
-              Cookie Policy
-            </a>
-            <a href="#contact" className="transition-colors hover:text-primary">
-              Contact
-            </a>
-          </div>
-        </div> */}
       </div>
     </footer>
   )

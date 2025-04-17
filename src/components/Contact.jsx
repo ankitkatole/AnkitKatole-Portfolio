@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Send, Linkedin, Github, Twitter, Mail } from "lucide-react"
 
 const Contact = () => {
@@ -10,6 +10,30 @@ const Contact = () => {
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.unobserve(entry.target)
+        }
+      },
+      { threshold: 0.1 },
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -96,14 +120,15 @@ const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="relative py-20">
-      <div className="absolute w-64 h-64 rounded-full top-20 right-10 bg-primary/5 blur-3xl"></div>
-      <div className="absolute rounded-full bottom-20 left-10 w-72 h-72 bg-secondary/5 blur-3xl"></div>
+    <section id="contact" ref={sectionRef} className="relative py-20">
+      <div className="absolute w-64 h-64 rounded-full top-20 right-10 bg-primary/5 blur-3xl animate-pulse-slow"></div>
+      <div className="absolute rounded-full bottom-20 left-10 w-72 h-72 bg-secondary/5 blur-3xl animate-pulse-slow animate-delay-300"></div>
 
       <div className="container relative z-10 px-6 mx-auto">
-        <div className="mb-16 text-center">
-          <span className="inline-block px-3 py-1 mb-4 text-sm font-medium rounded-full bg-primary/10 text-primary">
-          </span>
+        <div
+          className={`mb-16 text-center transition-all duration-700 ${isVisible ? "opacity-100" : "opacity-0 translate-y-10"}`}
+        >
+          <span className="inline-block px-3 py-1 mb-4 text-sm font-medium rounded-full bg-primary/10 text-primary"></span>
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">Contact Me</h2>
           <div className="w-20 h-1 mx-auto bg-gradient-to-r from-primary to-secondary"></div>
           <p className="max-w-2xl mx-auto mt-4 text-gray-600 dark:text-gray-300">
@@ -112,7 +137,9 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-          <div>
+          <div
+            className={`transition-all duration-700 delay-300 ${isVisible ? "opacity-100 animate-slide-left" : "opacity-0 -translate-x-10"}`}
+          >
             <h3 className="mb-6 text-2xl font-semibold text-gray-800 dark:text-gray-100">Let's Talk</h3>
             <p className="mb-8 text-gray-600 dark:text-gray-300">
               I'm currently open to freelance opportunities and interesting projects. Whether you have a question or
@@ -120,11 +147,11 @@ const Contact = () => {
             </p>
 
             <div className="mb-8 space-y-4">
-              <div className="p-4 bg-white border border-gray-100 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+              <div className="p-4 transition-all duration-300 bg-white border border-gray-100 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 hover:shadow-md hover:border-primary/30 dark:hover:border-primary/30">
                 <h4 className="mb-2 text-lg font-medium text-primary">Email</h4>
                 <p className="text-gray-600 dark:text-gray-300">katoleankit06@gmail.com</p>
               </div>
-              <div className="p-4 bg-white border border-gray-100 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+              <div className="p-4 transition-all duration-300 bg-white border border-gray-100 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 hover:shadow-md hover:border-secondary/30 dark:hover:border-secondary/30">
                 <h4 className="mb-2 text-lg font-medium text-secondary">Location</h4>
                 <p className="text-gray-600 dark:text-gray-300">Nagpur, Maharashtra, India</p>
               </div>
@@ -139,8 +166,9 @@ const Contact = () => {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-3 rounded-full shadow-sm hover:shadow-md transition-all duration-300 ${link.color}`}
+                    className={`p-3 rounded-full shadow-sm hover:shadow-md transition-all duration-300 ${link.color} hover:scale-110`}
                     aria-label={link.name}
+                    style={{ transitionDelay: `${index * 100}ms` }}
                   >
                     {link.icon}
                   </a>
@@ -149,10 +177,12 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="p-6 bg-white border border-gray-100 shadow-md dark:bg-gray-800 rounded-xl lg:p-8 dark:border-gray-700">
+          <div
+            className={`p-6 bg-white border border-gray-100 shadow-md dark:bg-gray-800 rounded-xl lg:p-8 dark:border-gray-700 transition-all duration-700 delay-500 ${isVisible ? "opacity-100 animate-slide-right" : "opacity-0 translate-x-10"}`}
+          >
             <h3 className="mb-6 text-2xl font-semibold text-gray-800 dark:text-gray-100">Send a Message</h3>
             {submitSuccess ? (
-              <div className="p-4 mb-6 text-green-800 bg-green-100 rounded-lg dark:bg-green-900/30 dark:text-green-200">
+              <div className="p-4 mb-6 text-green-800 bg-green-100 rounded-lg dark:bg-green-900/30 dark:text-green-200 animate-fade-in">
                 Thank you for your message! I'll get back to you soon.
               </div>
             ) : (
@@ -169,10 +199,10 @@ const Contact = () => {
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-lg border ${
                       errors.name ? "border-red-500 dark:border-red-400" : "border-gray-300 dark:border-gray-600"
-                    } bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary`}
+                    } bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-300`}
                     placeholder="Your name"
                   />
-                  {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
+                  {errors.name && <p className="mt-1 text-sm text-red-500 animate-fade-in">{errors.name}</p>}
                 </div>
 
                 <div className="mb-6">
@@ -187,10 +217,10 @@ const Contact = () => {
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-lg border ${
                       errors.email ? "border-red-500 dark:border-red-400" : "border-gray-300 dark:border-gray-600"
-                    } bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary`}
+                    } bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-300`}
                     placeholder="Your email"
                   />
-                  {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
+                  {errors.email && <p className="mt-1 text-sm text-red-500 animate-fade-in">{errors.email}</p>}
                 </div>
 
                 <div className="mb-6">
@@ -205,22 +235,22 @@ const Contact = () => {
                     rows="5"
                     className={`w-full px-4 py-3 rounded-lg border ${
                       errors.message ? "border-red-500 dark:border-red-400" : "border-gray-300 dark:border-gray-600"
-                    } bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary`}
+                    } bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-300`}
                     placeholder="Your message"
                   ></textarea>
-                  {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message}</p>}
+                  {errors.message && <p className="mt-1 text-sm text-red-500 animate-fade-in">{errors.message}</p>}
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex items-center justify-center w-full px-6 py-3 font-medium text-white transition-all duration-300 rounded-lg shadow-lg bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-primary/20"
+                  className="flex items-center justify-center w-full px-6 py-3 font-medium text-white transition-all duration-300 rounded-lg shadow-lg bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.02]"
                 >
                   {isSubmitting ? (
-                    <span>Sending...</span>
+                    <span className="animate-pulse">Sending...</span>
                   ) : (
                     <>
-                      <Send className="w-4 h-4 mr-2" />
+                      <Send className="w-4 h-4 mr-2 transition-transform group-hover:translate-x-1" />
                       Send Message
                     </>
                   )}
