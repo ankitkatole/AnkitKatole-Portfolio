@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react"
 import { Send, Linkedin, Github, Twitter, Mail } from "lucide-react"
 import emailjs from "emailjs-com"
 
+// const {VITE_PUBLIC_KEY,VITE_SERVICE_ID,VITE_TEMPLATE_ID} = import.meta.env
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -78,14 +80,14 @@ const Contact = () => {
   
     try {
       await emailjs.send(
-        'service_id',
-        'template_id',
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
         {
           from_name: formData.name,
           reply_to: formData.email,
           message: formData.message,
         },
-        'public_key' 
+        import.meta.env.VITE_PUBLIC_KEY 
       )
   
       setSubmitSuccess(true)
@@ -133,6 +135,8 @@ const Contact = () => {
       color: "bg-secondary/10 text-secondary hover:bg-secondary hover:text-white",
     },
   ]
+
+
 
   return (
     <section id="contact" ref={sectionRef} className="relative py-20">
