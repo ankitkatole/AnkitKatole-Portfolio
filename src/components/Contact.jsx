@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import { Send, Linkedin, Github, Twitter, Mail } from "lucide-react"
+import emailjs from "emailjs-com"
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -65,27 +66,41 @@ const Contact = () => {
     return newErrors
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const formErrors = validateForm()
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors)
       return
     }
-
+  
     setIsSubmitting(true)
-
-    setTimeout(() => {
-      setIsSubmitting(false)
+  
+    try {
+      await emailjs.send(
+        'service_id',
+        'template_id',
+        {
+          from_name: formData.name,
+          reply_to: formData.email,
+          message: formData.message,
+        },
+        'public_key' 
+      )
+  
       setSubmitSuccess(true)
       setFormData({ name: "", email: "", message: "" })
-
+    } catch (error) {
+      console.error("EmailJS error:", error)
+      setSubmitSuccess(false)
+    } finally {
+      setIsSubmitting(false)
+  
       setTimeout(() => {
         setSubmitSuccess(false)
       }, 5000)
-    }, 1500)
+    }
   }
-
   const socialLinks = [
     {
       name: "LinkedIn",
