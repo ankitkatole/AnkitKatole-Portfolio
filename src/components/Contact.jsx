@@ -41,21 +41,18 @@ const Contact = () => {
       icon: Mail,
       label: "Email",
       value: "katoleankit06@gmail.com",
-      emoji: "📧",
       color: "from-blue-400 to-purple-500"
     },
     {
       icon: Phone,
       label: "Phone",
       value: "+91 9307512981",
-      emoji: "📱",
       color: "from-green-400 to-blue-500"
     },
     {
       icon: MapPin,
       label: "Location",
       value: "Nagpur, Maharashtra, India",
-      emoji: "📍",
       color: "from-pink-400 to-red-500"
     }
   ]
@@ -127,8 +124,8 @@ const Contact = () => {
                   key={index}
                   className="group flex items-center gap-4 p-4 transition-all duration-300 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:scale-105"
                 >
-                  <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${info.color} flex items-center justify-center text-white text-xl group-hover:scale-110 transition-transform duration-300`}>
-                    {info.emoji}
+                  <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${info.color} flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300`}>
+                    <info.icon className="w-6 h-6" />
                   </div>
                   <div>
                     <div className="font-medium text-gray-800 dark:text-gray-100">{info.label}</div>
@@ -145,17 +142,16 @@ const Contact = () => {
               </h4>
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`group flex items-center gap-2 px-4 py-3 transition-all duration-300 rounded-full bg-gradient-to-r ${social.color} text-white hover:scale-110 hover:shadow-lg`}
-                  >
-                    <social.icon className="w-5 h-5" />
-                    <span className="text-sm font-medium">{social.label}</span>
-                    <span className="text-lg group-hover:animate-bounce">{social.emoji}</span>
-                  </a>
+                <a
+                  key={index}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group flex items-center gap-2 px-4 py-3 transition-all duration-300 rounded-full bg-gradient-to-r ${social.color} text-white hover:scale-110 hover:shadow-lg`}
+                >
+                  <social.icon className="w-5 h-5" />
+                  <span className="text-sm font-medium">{social.label}</span>
+                </a>
                 ))}
               </div>
             </div>

@@ -19,7 +19,7 @@ const Footer = () => {
     {
       icon: Twitter,
       label: "Twitter",
-      url: "https://twitter.com/ankitkatole",
+      url: "https://twitter.com/ankxious",
       emoji: ""
     },
     {

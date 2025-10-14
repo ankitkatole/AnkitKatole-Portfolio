@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react"
-import { Download, Coffee, Gamepad2, BookOpen, Palette, Zap } from "lucide-react"
+import { Download, Coffee, Music, BookOpen, Palette, Zap } from "lucide-react"
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -28,11 +28,11 @@ const About = () => {
   }, [])
 
   const interests = [
-    { icon: Coffee, label: "Chai", emoji: "☕" },
-    { icon: Gamepad2, label: "Music", emoji: "🎵" },
-    { icon: BookOpen, label: "Reading", emoji: "📚" },
-    { icon: Palette, label: "Design", emoji: "🎨" },
-    { icon: Zap, label: "Tech", emoji: "⚡" },
+    { icon: Coffee, label: "Chai" },
+    { icon: Music, label: "Music" },
+    { icon: BookOpen, label: "Reading" },
+    { icon: Palette, label: "Design" },
+    { icon: Zap, label: "Tech" },
   ]
 
   return (
@@ -118,7 +118,7 @@ const About = () => {
                 What I'm passionate about 🎯
               </h3>
               
-              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
                 {interests.map((interest, index) => (
                   <div
                     key={index}
@@ -129,9 +129,7 @@ const About = () => {
                       transform: isVisible ? "translateY(0)" : "translateY(20px)"
                     }}
                   >
-                    <div className="text-4xl animate-bounce" style={{ animationDelay: `${index * 200}ms` }}>
-                      {interest.emoji}
-                    </div>
+                    <interest.icon className="w-8 h-8 text-purple-600 dark:text-purple-400 group-hover:animate-bounce" style={{ animationDelay: `${index * 200}ms` }} />
                     <span className="font-medium text-gray-700 dark:text-gray-300">{interest.label}</span>
                   </div>
                 ))}
@@ -144,23 +142,23 @@ const About = () => {
                 </h4>
                 <ul className="space-y-2 text-sm text-purple-700 dark:text-purple-300">
                   <li className="flex items-center gap-2">
-                    <span>☕</span>
+                    <Coffee className="w-4 h-4" />
                     I drink more chai than water (probably not healthy)
                   </li>
                   <li className="flex items-center gap-2">
-                    <span>🎵</span>
+                    <Music className="w-4 h-4" />
                     Music is my stress buster and inspiration source
                   </li>
                   <li className="flex items-center gap-2">
-                    <span>📚</span>
+                    <BookOpen className="w-4 h-4" />
                     I read tech blogs like novels
                   </li>
                   <li className="flex items-center gap-2">
-                    <span>🎨</span>
+                    <Palette className="w-4 h-4" />
                     I'm obsessed with perfect color palettes
                   </li>
                   <li className="flex items-center gap-2">
-                    <span>⚡</span>
+                    <Zap className="w-4 h-4" />
                     I learn new tech just for fun (even if I never use it)
                   </li>
                 </ul>

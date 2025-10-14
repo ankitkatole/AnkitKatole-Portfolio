@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react"
+import { Code, Globe, Zap, Coins, Database, Wrench, FileText, Type, Coffee, Database as DbIcon, Terminal, GitBranch, Monitor, Send, Shield, Key, Server, Leaf, Cloud, MessageSquare, Video, Lock, Wallet, HardDrive } from "lucide-react"
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -29,7 +30,7 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Languages",
-      emoji: "💻",
+      icon: Code,
       color: "from-blue-400 to-purple-500",
       skills: [
         { name: "JavaScript (ES6+)", emoji: "📜" },
@@ -42,7 +43,7 @@ const Skills = () => {
     },
     {
       title: "Web Technologies",
-      emoji: "🌐",
+      icon: Globe,
       color: "from-green-400 to-blue-500",
       skills: [
         { name: "HTML5", emoji: "🏗️" },
@@ -55,7 +56,7 @@ const Skills = () => {
     },
     {
       title: "Frameworks & Libraries",
-      emoji: "⚡",
+      icon: Zap,
       color: "from-orange-400 to-red-500",
       skills: [
         { name: "React.js", emoji: "⚛️" },
@@ -68,7 +69,7 @@ const Skills = () => {
     },
     {
       title: "Blockchain/Web3",
-      emoji: "🪙",
+      icon: Coins,
       color: "from-purple-400 to-pink-500",
       skills: [
         { name: "Solana Web3.js", emoji: "🪙" },
@@ -79,7 +80,7 @@ const Skills = () => {
     },
     {
       title: "Databases",
-      emoji: "🗃️",
+      icon: Database,
       color: "from-teal-400 to-green-500",
       skills: [
         { name: "MongoDB", emoji: "🍃" },
@@ -89,7 +90,7 @@ const Skills = () => {
     },
     {
       title: "Tools & Platforms",
-      emoji: "🛠️",
+      icon: Wrench,
       color: "from-pink-400 to-purple-500",
       skills: [
         { name: "Git & GitHub", emoji: "🔧" },
@@ -137,7 +138,7 @@ const Skills = () => {
             >
               <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:scale-105 group">
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="text-3xl group-hover:animate-bounce">{category.emoji}</span>
+                  <category.icon className="w-8 h-8 text-purple-600 dark:text-purple-400 group-hover:animate-bounce" />
                   <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
                     {category.title}
                   </h3>
