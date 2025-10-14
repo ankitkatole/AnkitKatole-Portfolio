@@ -1,32 +1,33 @@
-
 import { useState, useEffect } from "react"
-import { Menu, X, Moon, Sun } from "lucide-react"
-import { useTheme } from "./ThemeProvider"
+import { Menu, X, Sun, Moon } from "lucide-react"
 
 const Navbar = ({ activeSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [mounted, setMounted] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isDark, setIsDark] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
-
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
+      setIsScrolled(window.scrollY > 50)
     }
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
+  const toggleTheme = () => {
+    setIsDark(!isDark)
+    document.documentElement.classList.toggle('dark')
   }
+
+  const navItems = [
+    { id: "home", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "skills", label: "Skills" },
+    { id: "projects", label: "Projects" },
+    { id: "experience", label: "Experience" },
+    { id: "contact", label: "Contact" },
+  ]
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
@@ -39,96 +40,73 @@ const Navbar = ({ activeSection }) => {
     setIsMenuOpen(false)
   }
 
-  const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "education", label: "Education" },
-    { id: "projects", label: "Projects" },
-    { id: "experience", label: "Experience" },
-    { id: "contact", label: "Contact" },
-  ]
-
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${
-        scrolled
-          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-md border-transparent"
-          : "bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-gray-200 dark:border-gray-800"
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg border-b border-purple-200 dark:border-purple-800"
+          : "bg-transparent"
       }`}
     >
-      <nav className="container px-6 py-4 mx-auto">
-        <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold">
-            <span className="text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text">Portfolio</span>
+      <div className="container px-6 mx-auto">
+        <div className="flex items-center justify-between h-20">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
+              <span className="text-white font-bold text-sm">AK</span>
+            </div>
+            <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Ankit Katole
+            </span>
           </div>
 
-          <div className="items-center hidden space-x-8 md:flex">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-all duration-300 hover:text-primary ${
+                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${
                   activeSection === item.id
-                    ? "text-primary border-b-2 border-primary"
-                    : "text-gray-600 dark:text-gray-300"
+                    ? "text-white bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg"
+                    : "text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20"
                 }`}
               >
                 {item.label}
+                {activeSection === item.id && (
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-white rounded-full"></div>
+                )}
               </button>
             ))}
-
-            {mounted && (
-              <button
-                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-                className="p-2 transition-all duration-300 bg-gray-100 rounded-full dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 hover:rotate-12"
-                aria-label="Toggle theme"
-              >
-                {theme === "dark" ? (
-                  <Sun className="w-5 h-5 text-yellow-500" />
-                ) : (
-                  <Moon className="w-5 h-5 text-primary" />
-                )}
-              </button>
-            )}
           </div>
 
-          <div className="flex items-center md:hidden">
-            {mounted && (
-              <button
-                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-                className="p-2 mr-2 transition-all duration-300 bg-gray-100 rounded-full dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 hover:rotate-12"
-                aria-label="Toggle theme"
-              >
-                {theme === "dark" ? (
-                  <Sun className="w-5 h-5 text-yellow-500" />
-                ) : (
-                  <Moon className="w-5 h-5 text-primary" />
-                )}
-              </button>
-            )}
+          <div className="flex items-center space-x-4">
             <button
-              onClick={toggleMenu}
-              className="p-2 transition-all duration-300 bg-gray-100 rounded-md dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
-              aria-label="Toggle menu"
+              onClick={toggleTheme}
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
             >
-              {isMenuOpen ? <X className="w-6 h-6 animate-fade-in" /> : <Menu className="w-6 h-6" />}
+              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
+
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+            >
+              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
         {isMenuOpen && (
-          <div className="py-4 mt-4 border-t border-gray-200 md:hidden dark:border-gray-800 animate-fade-in">
-            <div className="flex flex-col space-y-4">
-              {navItems.map((item, index) => (
+          <div className="md:hidden py-4 border-t border-purple-200 dark:border-purple-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-b-2xl">
+            <div className="flex flex-col space-y-2">
+              {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-sm font-medium py-2 transition-all duration-300 hover:text-primary ${
+                  className={`px-4 py-3 text-left text-sm font-medium transition-all duration-300 rounded-lg ${
                     activeSection === item.id
-                      ? "text-primary bg-primary/5 rounded-lg px-3"
-                      : "text-gray-600 dark:text-gray-300"
+                      ? "text-white bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg"
+                      : "text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20"
                   }`}
-                  style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {item.label}
                 </button>
@@ -136,8 +114,8 @@ const Navbar = ({ activeSection }) => {
             </div>
           </div>
         )}
-      </nav>
-    </header>
+      </div>
+    </nav>
   )
 }
 

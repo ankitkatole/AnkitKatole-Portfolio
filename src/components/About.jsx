@@ -1,6 +1,5 @@
-
 import { useEffect, useState, useRef } from "react"
-import { Download } from "lucide-react"
+import { Download, Coffee, Gamepad2, BookOpen, Palette, Zap } from "lucide-react"
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -14,7 +13,7 @@ const About = () => {
           observer.unobserve(entry.target)
         }
       },
-      { threshold: 0.1 },
+      { threshold: 0.1 }
     )
 
     if (sectionRef.current) {
@@ -28,99 +27,144 @@ const About = () => {
     }
   }, [])
 
-  const skills = [
-    { name: "JavaScript", icon: "📜" },
-    { name: "TypeScript", icon: "📝" },
-    { name: "React", icon: "⚛️" },
-    { name: "Node.js", icon: "🟢" },
-    { name: "Express.js", icon: "🚀" },
-    { name: "MongoDB", icon: "🍃" },
-    { name: "MySQL", icon: "🗃️" },
-    { name: "Tailwind CSS", icon: "🌊" },
-    { name: "Git & GitHub", icon: "🔧" },
-    { name: "REST APIs", icon: "🔌" },
-    { name: "Solana Web3.js", icon: "🪙" },
-    { name: "Java", icon: "☕" },
+  const interests = [
+    { icon: Coffee, label: "Chai", emoji: "☕" },
+    { icon: Gamepad2, label: "Music", emoji: "🎵" },
+    { icon: BookOpen, label: "Reading", emoji: "📚" },
+    { icon: Palette, label: "Design", emoji: "🎨" },
+    { icon: Zap, label: "Tech", emoji: "⚡" },
   ]
 
   return (
     <section
       id="about"
       ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800/50"
+      className="py-20 bg-gradient-to-b from-white via-purple-50/30 to-pink-50/30 dark:from-gray-900 dark:via-purple-900/20 dark:to-pink-900/20"
     >
       <div className="container px-6 mx-auto">
         <div
-          className={`mb-16 text-center transition-all duration-700 ${isVisible ? "opacity-100" : "opacity-0 translate-y-10"}`}
+          className={`mb-16 text-center transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
         >
-          <span className="inline-block px-3 py-1 mb-4 text-sm font-medium rounded-full bg-primary/10 text-primary"></span>
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">Know Me Better</h2>
-          <div className="w-20 h-1 mx-auto bg-gradient-to-r from-primary to-secondary"></div>
+          <span className="inline-flex items-center gap-2 px-4 py-2 mb-4 text-sm font-medium rounded-full bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 text-purple-700 dark:text-purple-300">
+            <span className="text-lg">👋</span>
+            Get to know me better
+          </span>
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            About Me
+          </h2>
+          <div className="w-20 h-1 mx-auto bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
         </div>
 
         <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
           <div
-            className={`transition-all duration-700 delay-300 ${isVisible ? "opacity-100 animate-slide-left" : "opacity-0 -translate-x-10"}`}
+            className={`transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+            }`}
+            style={{ transitionDelay: "0.3s" }}
           >
-            <h3 className="mb-4 text-2xl font-semibold text-gray-800 dark:text-gray-100">
-              Full-Stack Developer (aka I break and fix things on both ends)
-            </h3>
-            <p className="mb-6 text-gray-600 dark:text-gray-300">
-              Hey, I'm Ankit — a full-stack dev who can't decide whether backend bugs or frontend inconsistencies annoy
-              me more, so I do both. I'm currently interning at MagnifyX, where I improved user engagement and made
-              admin lives 50% easier (you're welcome).
-            </p>
-            <p className="mb-6 text-gray-600 dark:text-gray-300">
-              Built real-time auction platforms, decentralized airdrop tools, and AI-powered map apps—basically, I
-              thrive on chaos and challenges. Former dev at KraftMonk and RentOut Homes, AI workshop instructor, and a
-              firm believer that explaining ML to 8th graders deserves a TED Talk.
-            </p>
-            <p className="mb-8 text-gray-600 dark:text-gray-300">
-              Outside the dev world, I read, overthink designs, experiment with tech I might never use in production,
-              and dream of deploying side projects on time. Always learning, always shipping (eventually), and always
-              down for meaningful collabs.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="assets/AnkitKatole.pdf"
-                download="AnkitKatole.pdf"
-                className="inline-flex items-center gap-2 px-6 py-3 font-medium text-white transition-all duration-300 rounded-lg shadow-lg bg-primary hover:bg-primary/90 shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:scale-105"
-              >
-                <Download className="w-4 h-4 transition-transform group-hover:translate-y-1" />
-                Download Resume
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 font-medium transition-all duration-300 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 hover:border-primary dark:hover:border-primary dark:text-gray-200 hover:text-primary dark:hover:text-primary hover:shadow hover:scale-105"
-              >
-                Let's Talk
-              </a>
+            <div className="relative">
+              <h3 className="mb-6 text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                Hey! I'm Ankit, a Full-Stack Developer who's passionate about creating amazing digital experiences! 🚀
+              </h3>
+              
+              <div className="space-y-4 text-gray-600 dark:text-gray-300">
+                <p className="text-lg leading-relaxed">
+                  I'm currently looking for new internship opportunities to continue growing my technical expertise! I recently completed my Full-stack Developer Internship at <span className="font-semibold text-purple-600 dark:text-purple-400">MagnifyX</span> (London, Remote), 
+                  where I built 3+ responsive admin dashboards, reducing task execution time by 40% through API-first development.
+                </p>
+                
+                <p className="text-lg leading-relaxed">
+                  I'm pursuing my Bachelor of Technology in Computer Science and Engineering from G H Raisoni College of Engineering and Management, Nagpur, 
+                  with a CGPA of 9.54. I've also worked as a Back-End Developer Intern at RentOut Homes, improving API response times by 35%.
+                </p>
+                
+                <p className="text-lg leading-relaxed">
+                  I've built everything from real-time auction platforms to decentralized data marketplaces and AI-powered applications. 
+                  I'm passionate about solving complex problems and creating scalable software solutions. When I'm not coding, 
+                  you'll find me solving DSA problems on LeetCode (100+ solved) or conducting tech workshops! 🎤
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-4 mt-8">
+                <a
+                  href="assets/AnkitKatole.pdf"
+                  download="AnkitKatole.pdf"
+                  className="group inline-flex items-center gap-2 px-6 py-3 font-medium text-white transition-all duration-300 rounded-full shadow-lg bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 hover:shadow-xl hover:shadow-purple-500/25 hover:scale-105"
+                >
+                  <Download className="w-4 h-4 transition-transform group-hover:translate-y-1" />
+                  Download Resume
+                </a>
+                <a
+                  href="#contact"
+                  className="group inline-flex items-center gap-2 px-6 py-3 font-medium transition-all duration-300 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-purple-200 dark:border-purple-700 text-purple-700 dark:text-purple-300 hover:bg-purple-50 dark:hover:bg-purple-900/20 hover:scale-105"
+                >
+                  <span className="text-lg">💬</span>
+                  Let's Chat!
+                </a>
+              </div>
             </div>
           </div>
 
           <div
-            className={`transition-all duration-700 delay-500 ${isVisible ? "opacity-100 animate-slide-right" : "opacity-0 translate-x-10"}`}
+            className={`transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+            }`}
+            style={{ transitionDelay: "0.5s" }}
           >
-            <h3 className="mb-6 text-2xl font-semibold text-center text-gray-800 lg:text-left dark:text-gray-100">
-              Skills & Technologies
-            </h3>
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-              {skills.map((skill, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 p-4 transition-all duration-300 bg-white border border-gray-100 rounded-lg shadow-sm dark:bg-gray-700 hover:shadow-md hover:scale-105 hover:bg-primary/5 dark:hover:bg-primary/10 dark:border-gray-600"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <span
-                    className="text-2xl animate-float"
-                    style={{ animationDelay: `${index * 200}ms` }}
-                    aria-hidden="true"
+            <div className="space-y-8">
+              <h3 className="text-2xl font-semibold text-center text-gray-800 lg:text-left dark:text-gray-100">
+                What I'm passionate about 🎯
+              </h3>
+              
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+                {interests.map((interest, index) => (
+                  <div
+                    key={index}
+                    className="group flex flex-col items-center gap-3 p-6 transition-all duration-300 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border border-purple-100 dark:border-purple-800 rounded-2xl hover:shadow-lg hover:scale-105 hover:bg-purple-50/80 dark:hover:bg-purple-900/20"
+                    style={{ 
+                      animationDelay: `${index * 100}ms`,
+                      opacity: isVisible ? 1 : 0,
+                      transform: isVisible ? "translateY(0)" : "translateY(20px)"
+                    }}
                   >
-                    {skill.icon}
-                  </span>
-                  <span className="font-medium">{skill.name}</span>
-                </div>
-              ))}
+                    <div className="text-4xl animate-bounce" style={{ animationDelay: `${index * 200}ms` }}>
+                      {interest.emoji}
+                    </div>
+                    <span className="font-medium text-gray-700 dark:text-gray-300">{interest.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Fun facts */}
+              <div className="bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-2xl p-6 border border-purple-200 dark:border-purple-700">
+                <h4 className="mb-4 text-lg font-semibold text-purple-800 dark:text-purple-200">
+                  Fun Facts About Me 🎉
+                </h4>
+                <ul className="space-y-2 text-sm text-purple-700 dark:text-purple-300">
+                  <li className="flex items-center gap-2">
+                    <span>☕</span>
+                    I drink more chai than water (probably not healthy)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span>🎵</span>
+                    Music is my stress buster and inspiration source
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span>📚</span>
+                    I read tech blogs like novels
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span>🎨</span>
+                    I'm obsessed with perfect color palettes
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span>⚡</span>
+                    I learn new tech just for fun (even if I never use it)
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
