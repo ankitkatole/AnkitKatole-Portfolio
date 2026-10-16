@@ -19,25 +19,6 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* Clean Technical Anchor Grid */}
-        <div className="mt-8 sm:mt-10 pt-6 border-t border-bg-subtle grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-xs font-mono animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <div>
-            <div className="text-ink-faint uppercase tracking-wider mb-1">Backend</div>
-            <div className="text-ink-primary font-medium">Java, Spring Boot</div>
-          </div>
-          <div>
-            <div className="text-ink-faint uppercase tracking-wider mb-1">Architecture</div>
-            <div className="text-ink-primary font-medium">Microservices & REST APIs</div>
-          </div>
-          <div>
-            <div className="text-ink-faint uppercase tracking-wider mb-1">Frontend</div>
-            <div className="text-ink-primary font-medium">React.js & Tailwind CSS</div>
-          </div>
-          <div>
-            <div className="text-ink-faint uppercase tracking-wider mb-1">Databases</div>
-            <div className="text-ink-primary font-medium">MySQL & MongoDB</div>
-          </div>
-        </div>
 
         {/* Primary Call to Actions */}
         <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-3 sm:gap-4 animate-in fade-in slide-in-from-bottom-5 duration-800">
