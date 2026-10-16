@@ -2,10 +2,10 @@ import { personalInfo } from '../lib/data';
 
 export default function Hero() {
   return (
-    <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 border-b border-bg-subtle">
+    <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 border-b border-bg-subtle overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         {/* Sub-header and Location */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8 animate-in fade-in slide-in-from-bottom-2 duration-500">
           <div className="inline-flex items-center gap-2.5 px-3 py-1 bg-bg-surface border border-bg-subtle rounded text-xs font-mono text-ink-muted">
             <span className="w-1.5 h-1.5 rounded-full bg-status-online inline-block" />
             <span>Software Engineer at Capgemini</span>
@@ -16,30 +16,30 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Primary Typographic Composition with Original Styling */}
-        <div className="max-w-4xl space-y-6">
+        {/* Primary Typographic Composition with Rich Copper Color Mix */}
+        <div className="max-w-4xl space-y-6 animate-in fade-in slide-in-from-bottom-3 duration-700">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-ink-primary leading-[1.15]">
-            Building backend systems with{' '}
-            <span className="text-ink-primary border-b-2 border-accent-copper/70 pb-0.5">
+            Building robust backend systems with{' '}
+            <span className="text-accent-copper font-medium border-b-2 border-accent-copper/70 pb-0.5">
               Java & Spring Boot
             </span>
             , REST APIs, and modern web applications.
           </h1>
 
           <p className="text-base sm:text-lg lg:text-xl text-ink-muted max-w-2xl leading-relaxed font-normal">
-            I build reliable backend services, REST APIs, and responsive full-stack applications. Currently working at Capgemini with hands-on experience across Java, Spring Boot, MySQL, and the MERN stack.
+            I engineer reliable backend services, distributed workflows, and responsive full-stack applications. Currently working at Capgemini with hands-on experience across Java, Spring Boot, MySQL, and the MERN stack.
           </p>
         </div>
 
         {/* Clean Technical Anchor Grid */}
-        <div className="mt-12 pt-8 border-t border-bg-subtle grid grid-cols-2 sm:grid-cols-4 gap-6 text-xs font-mono">
+        <div className="mt-12 pt-8 border-t border-bg-subtle grid grid-cols-2 sm:grid-cols-4 gap-6 text-xs font-mono animate-in fade-in slide-in-from-bottom-4 duration-800">
           <div>
             <div className="text-ink-faint uppercase tracking-wider mb-1">Backend</div>
             <div className="text-ink-primary font-medium">Java, Spring Boot</div>
           </div>
           <div>
-            <div className="text-ink-faint uppercase tracking-wider mb-1">APIs</div>
-            <div className="text-ink-primary font-medium">RESTful APIs & Microservices</div>
+            <div className="text-ink-faint uppercase tracking-wider mb-1">Architecture</div>
+            <div className="text-ink-primary font-medium">Microservices & REST APIs</div>
           </div>
           <div>
             <div className="text-ink-faint uppercase tracking-wider mb-1">Frontend</div>
@@ -52,7 +52,7 @@ export default function Hero() {
         </div>
 
         {/* Primary Call to Actions */}
-        <div className="mt-10 flex flex-wrap items-center gap-4">
+        <div className="mt-10 flex flex-wrap items-center gap-4 animate-in fade-in slide-in-from-bottom-5 duration-900">
           <a
             href="#experience"
             className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-bg-primary bg-ink-primary hover:bg-white rounded transition-colors"
