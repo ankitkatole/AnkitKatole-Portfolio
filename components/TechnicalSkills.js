@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import SkillIcon from './SkillIcon';
 import { skillsData } from '../lib/data';
 
 export default function TechnicalSkills() {
@@ -84,9 +85,12 @@ export default function TechnicalSkills() {
                 {category.items.map((skill) => (
                   <div
                     key={skill.name}
-                    className="p-4 bg-bg-surface/80 border border-bg-subtle/80 rounded transition-colors hover:border-bg-subtle"
+                    className="p-4 bg-bg-surface/80 border border-bg-subtle/80 rounded transition-all duration-200 hover:border-accent-border/60 hover:bg-bg-elevated/40"
                   >
-                    <div className="text-sm font-semibold text-ink-primary mb-1 flex items-center justify-between">
+                    <div className="text-sm font-semibold text-ink-primary mb-1.5 flex items-center gap-2.5">
+                      <div className="p-1 rounded bg-bg-elevated border border-bg-subtle/70 text-accent-copper shrink-0">
+                        <SkillIcon name={skill.name} className="w-3.5 h-3.5 text-accent-copper" />
+                      </div>
                       <span>{skill.name}</span>
                     </div>
                     <p className="text-xs text-ink-muted leading-relaxed font-sans">

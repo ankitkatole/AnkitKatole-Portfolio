@@ -5,6 +5,7 @@ import CommandPalette from '../components/CommandPalette';
 import TelemetryDrawer from '../components/TelemetryDrawer';
 import VoxelBackground from '../components/VoxelBackground';
 import RobloxAvatar from '../components/RobloxAvatar';
+import CookieBanner from '../components/CookieBanner';
 import { personalInfo } from '../lib/data';
 
 export const metadata = {
@@ -108,6 +109,7 @@ export default function RootLayout({ children }) {
         <CommandPalette />
         <TelemetryDrawer />
         <RobloxAvatar />
+        <CookieBanner />
       </body>
     </html>
   );
