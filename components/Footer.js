@@ -49,6 +49,14 @@ export default function Footer() {
             >
               LinkedIn ↗
             </a>
+            <a
+              href={personalInfo.links.medium}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent-copper transition-colors"
+            >
+              Medium ↗
+            </a>
           </div>
         </div>
 

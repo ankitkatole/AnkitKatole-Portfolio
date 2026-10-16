@@ -90,6 +90,12 @@ export default function CommandPalette() {
       label: 'Open LeetCode Profile',
       shortcut: 'LC',
       action: () => window.open(personalInfo.links.leetcode, '_blank')
+    },
+    {
+      category: 'Profiles',
+      label: 'Read Medium Articles (@unemployedEngineer)',
+      shortcut: 'M',
+      action: () => window.open(personalInfo.links.medium, '_blank')
     }
   ];
 

@@ -41,6 +41,18 @@ export default function BlogIndexPage({ searchParams }) {
           <p className="text-base text-ink-muted max-w-2xl leading-relaxed">
             Reflections on distributed systems, Spring Boot backend patterns, Apache Kafka event streaming, and lessons learned building production software.
           </p>
+          <div className="mt-3 flex items-center gap-2 text-xs font-mono text-ink-muted">
+            <span>Also publishing on Medium:</span>
+            <a
+              href="https://medium.com/@unemployedEngineer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent-copper hover:underline inline-flex items-center gap-1 font-medium"
+            >
+              <span>@unemployedEngineer</span>
+              <span>↗</span>
+            </a>
+          </div>
 
           {/* Tag Filter Pills */}
           {allTags.length > 0 && (

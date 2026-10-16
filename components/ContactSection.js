@@ -85,7 +85,7 @@ export default function ContactSection() {
             {/* Verified Public Profiles */}
             <div className="space-y-3">
               <div className="text-xs font-mono text-ink-faint uppercase">Verified Profiles</div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs font-mono">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
                 <a
                   href={personalInfo.links.github}
                   target="_blank"
@@ -104,6 +104,16 @@ export default function ContactSection() {
                 >
                   <span>LinkedIn</span>
                   <span>↗</span>
+                </a>
+
+                <a
+                  href={personalInfo.links.medium}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-bg-surface hover:bg-bg-elevated border border-bg-subtle hover:border-accent-copper/60 rounded text-ink-muted hover:text-ink-primary transition-colors flex items-center justify-between"
+                >
+                  <span>Medium</span>
+                  <span className="text-accent-copper">↗</span>
                 </a>
 
                 <a
