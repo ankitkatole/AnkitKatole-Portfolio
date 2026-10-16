@@ -136,13 +136,13 @@ export default function ArticlePage({ params }) {
 
             <div className="flex items-center gap-3">
               <Link
-                href="/#projects"
+                href="/?scroll=projects"
                 className="px-3 py-1.5 text-xs font-mono bg-bg-elevated hover:bg-bg-subtle text-ink-primary border border-bg-subtle rounded transition-colors"
               >
                 View Projects →
               </Link>
               <Link
-                href="/#contact"
+                href="/?scroll=contact"
                 className="px-3 py-1.5 text-xs font-mono text-ink-muted hover:text-ink-primary transition-colors"
               >
                 Discuss Post
