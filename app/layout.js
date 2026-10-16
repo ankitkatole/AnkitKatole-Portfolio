@@ -6,6 +6,7 @@ import TelemetryDrawer from '../components/TelemetryDrawer';
 import VoxelBackground from '../components/VoxelBackground';
 import RobloxAvatar from '../components/RobloxAvatar';
 import CookieBanner from '../components/CookieBanner';
+import SmoothScroll from '../components/SmoothScroll';
 import { personalInfo } from '../lib/data';
 
 export const metadata = {
@@ -110,6 +111,7 @@ export default function RootLayout({ children }) {
         <TelemetryDrawer />
         <RobloxAvatar />
         <CookieBanner />
+        <SmoothScroll />
       </body>
     </html>
   );

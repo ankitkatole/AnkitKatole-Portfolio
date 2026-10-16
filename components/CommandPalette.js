@@ -16,7 +16,11 @@ export default function CommandPalette() {
     setIsOpen(false);
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      if (window.lenis) {
+        window.lenis.scrollTo(el, { duration: 1.25, offset: -24 });
+      } else {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
     } else {
       router.push(`/?scroll=${id}`);
     }

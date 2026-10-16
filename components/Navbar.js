@@ -26,7 +26,11 @@ export default function Navbar() {
         setTimeout(() => {
           const el = document.getElementById(scrollTarget);
           if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
+            if (window.lenis) {
+              window.lenis.scrollTo(el, { duration: 1.25, offset: -24 });
+            } else {
+              el.scrollIntoView({ behavior: 'smooth' });
+            }
           }
           window.history.replaceState({}, '', window.location.pathname);
         }, 150);
@@ -42,7 +46,11 @@ export default function Navbar() {
     if (pathname === '/') {
       const el = document.getElementById(sectionId);
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
+        if (window.lenis) {
+          window.lenis.scrollTo(el, { duration: 1.25, offset: -24 });
+        } else {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     } else {
       router.push(`/?scroll=${sectionId}`);
