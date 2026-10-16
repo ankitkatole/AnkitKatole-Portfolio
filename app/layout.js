@@ -1,24 +1,9 @@
-import { Manrope, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CommandPalette from '../components/CommandPalette';
 import TelemetryDrawer from '../components/TelemetryDrawer';
 import { personalInfo } from '../lib/data';
-
-const sansFont = Manrope({
-  subsets: ['latin'],
-  variable: '--font-sans',
-  display: 'swap',
-  weight: ['400', '500', '600', '700']
-});
-
-const monoFont = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-  display: 'swap',
-  weight: ['400', '500']
-});
 
 export const metadata = {
   metadataBase: new URL('https://ankitkatole.dev'),
@@ -104,7 +89,7 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="en" className={`${sansFont.variable} ${monoFont.variable}`}>
+    <html lang="en">
       <head>
         <script
           type="application/ld+json"

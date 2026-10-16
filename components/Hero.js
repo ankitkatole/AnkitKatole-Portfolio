@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { personalInfo } from '../lib/data';
+import UniqueTypewriter from './UniqueTypewriter';
 
 export default function Hero() {
   return (
@@ -19,12 +20,18 @@ export default function Hero() {
 
         {/* Primary Typographic Composition */}
         <div className="max-w-4xl space-y-6">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-ink-primary leading-[1.12]">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-ink-primary leading-[1.14]">
             Engineering resilient backend services with{' '}
-            <span className="text-ink-primary border-b-2 border-accent-copper/70 pb-0.5">
-              Java, Spring Boot
-            </span>
-            , and event-driven architecture.
+            <UniqueTypewriter
+              phrases={[
+                'Java 8+ & Spring Boot',
+                'Kafka event streams',
+                'Spring Cloud microservices',
+                'telecom order workflows',
+                'RFC-7807 REST contracts'
+              ]}
+            />
+            , and distributed systems.
           </h1>
 
           <p className="text-base sm:text-lg lg:text-xl text-ink-muted max-w-2xl leading-relaxed font-normal">
@@ -55,10 +62,10 @@ export default function Hero() {
         {/* Primary Call to Actions */}
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <a
-            href="#projects"
+            href="#experience"
             className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-bg-primary bg-ink-primary hover:bg-white rounded transition-colors"
           >
-            <span>Explore Selected Work</span>
+            <span>View Experience & Work</span>
             <span aria-hidden="true">→</span>
           </a>
 

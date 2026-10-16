@@ -19,8 +19,8 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: 'Work', href: pathname === '/' ? '#projects' : '/#projects' },
     { label: 'Experience', href: pathname === '/' ? '#experience' : '/#experience' },
+    { label: 'Work', href: pathname === '/' ? '#projects' : '/#projects' },
     { label: 'Skills', href: pathname === '/' ? '#skills' : '/#skills' },
     { label: 'Writing', href: '/blog' },
     { label: 'About', href: pathname === '/' ? '#about' : '/#about' },

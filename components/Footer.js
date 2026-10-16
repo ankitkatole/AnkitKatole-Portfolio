@@ -18,11 +18,11 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap items-center gap-5 text-xs">
-            <Link href="#projects" className="hover:text-ink-primary transition-colors">
-              Work
-            </Link>
             <Link href="#experience" className="hover:text-ink-primary transition-colors">
               Experience
+            </Link>
+            <Link href="#projects" className="hover:text-ink-primary transition-colors">
+              Work
             </Link>
             <Link href="#skills" className="hover:text-ink-primary transition-colors">
               Skills
