@@ -177,7 +177,7 @@ export default function Navbar() {
             >
               Download Resume (PDF) ↓
             </a>
-            <span className="text-xs font-mono text-ink-faint">Bangalore, IN</span>
+            <span className="text-xs font-mono text-ink-faint">India</span>
           </div>
         </div>
       )}

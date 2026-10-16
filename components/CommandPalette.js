@@ -97,7 +97,7 @@ export default function CommandPalette() {
   const easterEggs = {
     kafka: 'Kafka Tip: In Spring for Apache Kafka, pair @RetryableTopic with @DltHandler and an ExponentialBackOff to preserve consumer partition throughput without stalling broker commits.',
     capgemini: 'Current Focus: Order Process Management microservices in telecommunications, implementing scheduled cron tasks, Swagger contract documentation, and Spring Boot Actuator telemetry.',
-    spring: 'Spring Boot 3 Tip: ProblemDetail (RFC-7807) standardizes API error payloads without rolling custom error wrappers.',
+    spring: 'Spring Boot Tip: ProblemDetail provides standardized error responses for REST APIs.',
     secret: 'Engineering Motto: Make the contracts explicit, the errors readable, and the message processing idempotent.'
   };
 

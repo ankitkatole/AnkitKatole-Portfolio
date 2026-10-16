@@ -27,7 +27,7 @@ export default function AboutSection() {
             </p>
 
             <p>
-              My approach prioritizes architectural clarity over fleeting trends. I care deeply about clean exception propagation (RFC-7807), database schema constraints, idempotent messaging with Apache Kafka, and writing maintainable Java that respects memory, concurrency, and operational observability.
+              My approach prioritizes architectural clarity over fleeting trends. I care deeply about clean exception handling, database schema constraints, reliable messaging with Apache Kafka, and writing maintainable Java that respects memory, concurrency, and operational observability.
             </p>
 
             <p>

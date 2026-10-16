@@ -147,7 +147,7 @@ export default function TelemetryDrawer() {
         {/* Footer */}
         <div className="px-4 py-2.5 bg-bg-elevated/20 border-t border-bg-subtle flex items-center justify-between text-[11px] text-ink-faint">
           <span>Toggle with ` (backtick) anytime</span>
-          <span>Nagpur · Bangalore, India</span>
+          <span>India</span>
         </div>
       </div>
     </div>

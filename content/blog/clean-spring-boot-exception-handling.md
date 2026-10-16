@@ -1,7 +1,7 @@
 ---
-title: "Standardized API Error Handling with RFC-7807 in Spring Boot"
+title: "Clean REST API Error Handling in Spring Boot with ProblemDetail"
 slug: "clean-spring-boot-exception-handling"
-description: "Eliminating ambiguous HTTP 500 errors by structuring REST exceptions with Spring Boot ProblemDetail and standard RFC-7807 specifications."
+description: "Eliminating ambiguous HTTP 500 errors by structuring REST exceptions with Spring Boot ProblemDetail for predictable client responses."
 publishedAt: "2026-09-14"
 tags: ["Spring Boot", "REST APIs", "Java", "Backend"]
 draft: false
