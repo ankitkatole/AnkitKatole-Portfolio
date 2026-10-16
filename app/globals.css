@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #141210;
+    --bg-surface: #1E1B18;
+    --bg-elevated: #282420;
+    --bg-subtle: #332E29;
+    --ink-primary: #F2EFE9;
+    --ink-muted: #B0A89C;
+    --ink-faint: #7A7369;
+    --accent-copper: #C48259;
+    --accent-border: rgba(196, 130, 89, 0.3);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-primary);
+    color: var(--ink-primary);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--ink-primary);
+    min-height: 100dvh;
+    overflow-x: hidden;
+    position: relative;
+    selection-background-color: #382c22;
+    selection-color: #F2EFE9;
+  }
+
+  ::selection {
+    background-color: #3a2c21;
+    color: #F2EFE9;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+    letter-spacing: -0.025em;
+    font-weight: 600;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Keyboard focus styles */
+  :focus-visible {
+    outline: 2px solid var(--accent-copper);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* Subtle, high-restraint tactile texture */
+.subtle-grain {
+  background-image: radial-gradient(rgba(242, 239, 233, 0.035) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Restrained hairline rule */
+.hairline-divider {
+  border-top: 1px solid #282420;
+}
+
+/* Editorial mono tag */
+.mono-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* Code block container */
+pre code {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
