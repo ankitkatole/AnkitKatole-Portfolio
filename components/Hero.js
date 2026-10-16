@@ -11,11 +11,11 @@ export default function Hero() {
             <span className="text-accent-copper font-medium border-b-2 border-accent-copper/70 pb-0.5">
               Java & Spring Boot
             </span>
-            , REST APIs, and modern web applications.
+            , LLM integration, and modern web applications.
           </h1>
 
           <p className="text-sm sm:text-base lg:text-lg text-ink-muted max-w-2xl leading-relaxed font-normal">
-            I engineer reliable backend services, distributed workflows, and responsive full-stack applications. Currently working at Capgemini with hands-on experience across Java, Spring Boot, MySQL, and the MERN stack.
+            I engineer reliable backend services, distributed workflows, and intelligent full-stack applications. Currently working at Capgemini with hands-on experience across Java, Spring Boot, RAG development, and LLM integrations.
           </p>
         </div>
 
