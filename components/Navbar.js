@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { personalInfo } from '../lib/data';
-import { PhoneIcon } from './SocialIcons';
+import { PhoneIcon, WhatsAppIcon } from './SocialIcons';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -137,8 +137,21 @@ export default function Navbar() {
           </button>
         </nav>
 
-        {/* Actions: Call + Resume + Command Palette Trigger */}
-        <div className="hidden sm:flex items-center gap-3">
+        {/* Actions: Call + WhatsApp + Resume + Command Palette Trigger */}
+        <div className="hidden sm:flex items-center gap-2.5">
+          {/* Direct WhatsApp Link */}
+          <a
+            href={personalInfo.links.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono text-ink-primary hover:text-white bg-bg-surface hover:bg-bg-elevated border border-bg-subtle hover:border-accent-copper rounded transition-colors"
+            title={`WhatsApp Ankit: ${personalInfo.phone}`}
+            aria-label="Direct WhatsApp Message"
+          >
+            <WhatsAppIcon className="w-3.5 h-3.5 text-accent-copper" />
+            <span>WhatsApp</span>
+          </a>
+
           {/* Direct Call Link */}
           <a
             href={`tel:${personalInfo.phone}`}
@@ -166,14 +179,23 @@ export default function Navbar() {
           <a
             href={personalInfo.resumePath}
             download="Ankit_Katole_Software_Engineer_Resume.pdf"
-            className="px-3 py-1.5 text-xs font-mono uppercase tracking-wide text-ink-primary bg-bg-elevated hover:bg-bg-subtle border border-bg-subtle hover:border-accent-copper rounded transition-colors"
+            className="px-3 py-1.5 text-xs font-mono uppercase tracking-wide text-ink-primary bg-bg-elevated hover:bg-subtle border border-bg-subtle hover:border-accent-copper rounded transition-colors"
           >
             Resume ↓
           </a>
         </div>
 
         {/* Mobile menu trigger */}
-        <div className="flex sm:hidden items-center gap-2">
+        <div className="flex sm:hidden items-center gap-1.5">
+          <a
+            href={personalInfo.links.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 text-ink-primary hover:text-accent-copper"
+            aria-label="WhatsApp"
+          >
+            <WhatsAppIcon className="w-4 h-4 text-accent-copper" />
+          </a>
           <a
             href={`tel:${personalInfo.phone}`}
             className="p-2 text-ink-primary hover:text-accent-copper"

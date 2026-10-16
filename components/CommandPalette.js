@@ -75,6 +75,14 @@ export default function CommandPalette() {
     },
     {
       category: 'Actions',
+      label: 'Message on WhatsApp (+91 9307512981)',
+      shortcut: 'W',
+      action: () => {
+        window.open(personalInfo.links.whatsapp, '_blank');
+      }
+    },
+    {
+      category: 'Actions',
       label: 'Copy Email Address (katoleankit06@gmail.com)',
       shortcut: '↵',
       action: () => {

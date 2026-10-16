@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { personalInfo } from '../lib/data';
-import { GitHubIcon, LinkedInIcon, MediumIcon, LeetCodeIcon, PhoneIcon } from './SocialIcons';
+import { GitHubIcon, LinkedInIcon, MediumIcon, LeetCodeIcon, PhoneIcon, WhatsAppIcon } from './SocialIcons';
 import HandUnderline from './HandUnderline';
 
 export default function ContactSection() {
@@ -98,6 +98,30 @@ export default function ContactSection() {
                   className="px-2.5 py-1 text-xs font-mono bg-bg-elevated hover:bg-bg-subtle border border-bg-subtle text-ink-muted hover:text-ink-primary rounded transition-colors whitespace-nowrap"
                 >
                   Call Now ↗
+                </a>
+              </div>
+            </div>
+
+            {/* WhatsApp Direct Card */}
+            <div className="bg-bg-surface border border-bg-subtle rounded-lg p-5">
+              <div className="text-xs font-mono text-ink-faint uppercase mb-1">Direct WhatsApp</div>
+              <div className="flex items-center justify-between gap-2 mt-1">
+                <a
+                  href={personalInfo.links.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-mono text-ink-primary hover:text-accent-copper transition-colors inline-flex items-center gap-2"
+                >
+                  <WhatsAppIcon className="w-4 h-4 text-accent-copper" />
+                  <span>{personalInfo.phone}</span>
+                </a>
+                <a
+                  href={personalInfo.links.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2.5 py-1 text-xs font-mono bg-bg-elevated hover:bg-bg-subtle border border-bg-subtle text-ink-muted hover:text-ink-primary rounded transition-colors whitespace-nowrap"
+                >
+                  WhatsApp ↗
                 </a>
               </div>
             </div>

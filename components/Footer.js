@@ -7,7 +7,8 @@ import {
   MediumIcon,
   LeetCodeIcon,
   PhoneIcon,
-  MailIcon
+  MailIcon,
+  WhatsAppIcon
 } from './SocialIcons';
 
 export default function Footer() {
@@ -102,6 +103,17 @@ export default function Footer() {
               aria-label="LeetCode Profile"
             >
               <LeetCodeIcon className="w-5 h-5 transition-transform group-hover:scale-110" />
+            </a>
+
+            <a
+              href={personalInfo.links.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full border border-bg-subtle bg-bg-surface hover:bg-bg-elevated hover:border-accent-copper flex items-center justify-center text-ink-muted hover:text-white transition-all shadow-md group"
+              title={`WhatsApp (${personalInfo.phone})`}
+              aria-label="Direct WhatsApp Message"
+            >
+              <WhatsAppIcon className="w-5 h-5 transition-transform group-hover:scale-110" />
             </a>
 
             <a
