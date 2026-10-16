@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CommandPalette from '../components/CommandPalette';
 import TelemetryDrawer from '../components/TelemetryDrawer';
+import VoxelBackground from '../components/VoxelBackground';
 import { personalInfo } from '../lib/data';
 
 export const metadata = {
@@ -96,7 +97,8 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased bg-bg-primary text-ink-primary min-h-[100dvh] flex flex-col selection:bg-bg-elevated selection:text-ink-primary">
+      <body className="font-sans antialiased bg-bg-primary text-ink-primary min-h-[100dvh] flex flex-col selection:bg-bg-elevated selection:text-ink-primary relative">
+        <VoxelBackground />
         <Navbar />
         <main id="main-content" className="flex-1 w-full focus:outline-none">
           {children}
