@@ -1,57 +1,48 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}", "*.{js,ts,jsx,tsx,mdx}"],
+  content: [
+    "./app/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
+    "./content/**/*.{js,jsx,md}"
+  ],
   theme: {
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+        bg: {
+          primary: '#141210',   // Deep warm walnut / near-black
+          surface: '#1E1B18',   // Rich graphite warm surface
+          elevated: '#282420',  // Elevated subtle layer
+          subtle: '#332E29'     // Borders & structural dividers
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+        ink: {
+          primary: '#F2EFE9',   // Warm off-white for primary typography
+          muted: '#B0A89C',     // Muted warm stone for secondary reading
+          faint: '#7A7369'      // Faint metadata & subtle labels
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          copper: '#C48259',    // Restrained burnished copper
+          hover: '#D4956D',     // Subtle copper warmth hover
+          muted: 'rgba(196, 130, 89, 0.15)',
+          border: 'rgba(196, 130, 89, 0.35)'
         },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+        status: {
+          online: '#488B67',    // Muted moss green (not neon)
+          amber: '#C79A46'
+        }
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+      fontFamily: {
+        sans: ['var(--font-sans)', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['var(--font-mono)', 'monospace'],
+        display: ['var(--font-display)', 'serif']
       },
-      container: {
-        center: true,
-        padding: "1.5rem",
-        screens: {
-          "2xl": "1400px",
-        },
-      },
-    },
+      letterSpacing: {
+        tightest: '-0.035em',
+        tighter: '-0.02em',
+        tight: '-0.01em',
+        wide: '0.04em',
+        widest: '0.08em'
+      }
+    }
   },
-  plugins: [require("tailwindcss-animate")],
-}
+  plugins: []
+};
