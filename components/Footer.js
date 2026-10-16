@@ -19,10 +19,7 @@ export default function Footer() {
 
           <div className="flex flex-wrap items-center gap-5 text-xs">
             <Link href="#projects" className="hover:text-ink-primary transition-colors">
-              Projects
-            </Link>
-            <Link href="#engineering" className="hover:text-ink-primary transition-colors">
-              Engineering
+              Work
             </Link>
             <Link href="#experience" className="hover:text-ink-primary transition-colors">
               Experience
@@ -32,6 +29,9 @@ export default function Footer() {
             </Link>
             <Link href="/blog" className="hover:text-ink-primary transition-colors">
               Writing
+            </Link>
+            <Link href="#about" className="hover:text-ink-primary transition-colors">
+              About
             </Link>
             <a
               href={personalInfo.links.github}
@@ -58,9 +58,9 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-3">
-            <span>Built with Next.js & Tailwind</span>
-            <span>·</span>
             <span className="text-ink-muted">Press ⌘K for command palette</span>
+            <span>·</span>
+            <span>Press ` (backtick) for telemetry</span>
           </div>
         </div>
       </div>

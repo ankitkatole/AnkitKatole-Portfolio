@@ -1,6 +1,5 @@
 import Hero from '../components/Hero';
 import SelectedProjects from '../components/SelectedProjects';
-import InteractiveEngineering from '../components/InteractiveEngineering';
 import ExperienceTimeline from '../components/ExperienceTimeline';
 import TechnicalSkills from '../components/TechnicalSkills';
 import AboutSection from '../components/AboutSection';
@@ -11,7 +10,6 @@ export default function HomePage() {
     <div className="w-full">
       <Hero />
       <SelectedProjects />
-      <InteractiveEngineering />
       <ExperienceTimeline />
       <TechnicalSkills />
       <AboutSection />

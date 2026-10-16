@@ -20,10 +20,10 @@ export default function CommandPalette() {
       action: () => router.push('/#projects')
     },
     {
-      category: 'Navigation',
-      label: 'Open Engineering Workbench',
-      shortcut: 'W',
-      action: () => router.push('/#engineering')
+      category: 'Diagnostics',
+      label: 'Open System Telemetry Diagnostics',
+      shortcut: '`',
+      action: () => window.dispatchEvent(new CustomEvent('toggle-telemetry-drawer'))
     },
     {
       category: 'Navigation',

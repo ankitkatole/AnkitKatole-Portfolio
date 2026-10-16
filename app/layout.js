@@ -3,6 +3,7 @@ import './globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CommandPalette from '../components/CommandPalette';
+import TelemetryDrawer from '../components/TelemetryDrawer';
 import { personalInfo } from '../lib/data';
 
 const sansFont = Manrope({
@@ -117,6 +118,7 @@ export default function RootLayout({ children }) {
         </main>
         <Footer />
         <CommandPalette />
+        <TelemetryDrawer />
       </body>
     </html>
   );

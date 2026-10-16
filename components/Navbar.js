@@ -20,15 +20,19 @@ export default function Navbar() {
 
   const navLinks = [
     { label: 'Work', href: pathname === '/' ? '#projects' : '/#projects' },
-    { label: 'Engineering', href: pathname === '/' ? '#engineering' : '/#engineering' },
     { label: 'Experience', href: pathname === '/' ? '#experience' : '/#experience' },
     { label: 'Skills', href: pathname === '/' ? '#skills' : '/#skills' },
     { label: 'Writing', href: '/blog' },
-    { label: 'About', href: pathname === '/' ? '#about' : '/#about' }
+    { label: 'About', href: pathname === '/' ? '#about' : '/#about' },
+    { label: 'Contact', href: pathname === '/' ? '#contact' : '/#contact' }
   ];
 
   const openCommandPalette = () => {
     window.dispatchEvent(new CustomEvent('toggle-command-palette'));
+  };
+
+  const openTelemetryDrawer = () => {
+    window.dispatchEvent(new CustomEvent('toggle-telemetry-drawer'));
   };
 
   return (
@@ -41,19 +45,28 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Brand / Name Anchor */}
-        <Link
-          href="/"
-          className="group flex items-center gap-3 text-ink-primary hover:text-ink-primary"
-          aria-label="Ankit Katole, Home"
-        >
-          <span className="w-2 h-2 rounded-full bg-accent-copper inline-block" />
-          <span className="font-semibold tracking-tight text-sm md:text-base">
-            Ankit Katole
-          </span>
-          <span className="hidden sm:inline-block text-xs font-mono text-ink-faint border-l border-bg-subtle pl-3">
-            SE · Capgemini
-          </span>
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/"
+            className="group flex items-center gap-2.5 text-ink-primary hover:text-ink-primary"
+            aria-label="Ankit Katole, Home"
+          >
+            <span className="font-semibold tracking-tight text-sm md:text-base">
+              Ankit Katole
+            </span>
+          </Link>
+
+          {/* Interactive Easter Egg: Live Node Status Button */}
+          <button
+            type="button"
+            onClick={openTelemetryDrawer}
+            className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-mono text-ink-faint hover:text-ink-primary bg-bg-surface hover:bg-bg-elevated border border-bg-subtle transition-colors"
+            title="Click or press ` (backtick) for system telemetry"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-status-online inline-block" />
+            <span className="hidden sm:inline">node:online</span>
+          </button>
+        </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-ink-muted">
