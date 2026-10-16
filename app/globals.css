@@ -22,6 +22,7 @@
     background-color: var(--bg-primary);
     color: var(--ink-primary);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    cursor: url('/cursors/roblox-cursor.svg') 2 2, auto;
   }
 
   body {
@@ -32,6 +33,11 @@
     position: relative;
     selection-background-color: #382c22;
     selection-color: #F2EFE9;
+    cursor: url('/cursors/roblox-cursor.svg') 2 2, auto;
+  }
+
+  a, button, [role="button"], input[type="submit"], input[type="button"], select {
+    cursor: url('/cursors/roblox-pointer.svg') 8 2, pointer;
   }
 
   ::selection {
@@ -70,6 +76,29 @@
 
 .animate-fade-in-up {
   animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes robloxWave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-35deg);
+  }
+  40% {
+    transform: rotate(15deg);
+  }
+  60% {
+    transform: rotate(-30deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+}
+
+.animate-roblox-wave {
+  transform-origin: 85% 15%;
+  animation: robloxWave 2s ease-in-out infinite;
 }
 
 /* Subtle, high-restraint tactile texture */

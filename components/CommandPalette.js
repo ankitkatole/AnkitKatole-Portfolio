@@ -111,11 +111,27 @@ export default function CommandPalette() {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      // Toggle palette with Cmd+K or Ctrl+K
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      // Toggle palette with Cmd+K or Ctrl+K (case-insensitive & code-safe)
+      const isKeyK = e.key?.toLowerCase() === 'k' || e.code === 'KeyK';
+      if ((e.metaKey || e.ctrlKey) && isKeyK) {
         e.preventDefault();
+        e.stopPropagation();
         setIsOpen((prev) => !prev);
+        return;
       }
+
+      // Quick slash trigger if not focused on an input
+      if (
+        e.key === '/' &&
+        !isOpen &&
+        document.activeElement?.tagName !== 'INPUT' &&
+        document.activeElement?.tagName !== 'TEXTAREA'
+      ) {
+        e.preventDefault();
+        setIsOpen(true);
+        return;
+      }
+
       if (e.key === 'Escape' && isOpen) {
         setIsOpen(false);
       }

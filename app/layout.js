@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import CommandPalette from '../components/CommandPalette';
 import TelemetryDrawer from '../components/TelemetryDrawer';
 import VoxelBackground from '../components/VoxelBackground';
+import RobloxAvatar from '../components/RobloxAvatar';
 import { personalInfo } from '../lib/data';
 
 export const metadata = {
@@ -106,6 +107,7 @@ export default function RootLayout({ children }) {
         <Footer />
         <CommandPalette />
         <TelemetryDrawer />
+        <RobloxAvatar />
       </body>
     </html>
   );

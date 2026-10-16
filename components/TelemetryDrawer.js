@@ -22,9 +22,10 @@ export default function TelemetryDrawer() {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      // Toggle with backtick (`) if not typing inside an input/textarea
+      // Toggle with backtick (`) or tilde (~) if not typing inside an input/textarea
+      const isBackquote = e.key === '`' || e.key === '~' || e.code === 'Backquote';
       if (
-        e.key === '`' &&
+        isBackquote &&
         document.activeElement?.tagName !== 'INPUT' &&
         document.activeElement?.tagName !== 'TEXTAREA'
       ) {
