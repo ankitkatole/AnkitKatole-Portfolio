@@ -2,30 +2,52 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { personalInfo } from '../lib/data';
+import { PhoneIcon } from './SocialIcons';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
-  const navLinks = [
-    { label: 'Experience', href: pathname === '/' ? '#experience' : '/#experience' },
-    { label: 'Work', href: pathname === '/' ? '#projects' : '/#projects' },
-    { label: 'Skills', href: pathname === '/' ? '#skills' : '/#skills' },
-    { label: 'Writing', href: '/blog' },
-    { label: 'About', href: pathname === '/' ? '#about' : '/#about' },
-    { label: 'Contact', href: pathname === '/' ? '#contact' : '/#contact' }
-  ];
+    // Handle cross-page scroll navigation without appending hash to URL
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const scrollTarget = params.get('scroll');
+      if (scrollTarget) {
+        setTimeout(() => {
+          const el = document.getElementById(scrollTarget);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+          window.history.replaceState({}, '', window.location.pathname);
+        }, 150);
+      }
+    }
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [pathname]);
+
+  // Smooth scroll handler without hash routing in URL
+  const scrollToSection = (sectionId) => {
+    setMobileMenuOpen(false);
+    if (pathname === '/') {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      router.push(`/?scroll=${sectionId}`);
+    }
+  };
 
   const openCommandPalette = () => {
     window.dispatchEvent(new CustomEvent('toggle-command-palette'));
@@ -68,26 +90,66 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation (Direct scroll without hash routing in URL) */}
         <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-ink-muted">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.label}
-                href={link.href}
-                className={`transition-colors duration-150 hover:text-ink-primary ${
-                  isActive ? 'text-ink-primary font-semibold' : ''
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+          <button
+            type="button"
+            onClick={() => scrollToSection('experience')}
+            className="transition-colors duration-150 hover:text-ink-primary cursor-pointer text-sm font-medium"
+          >
+            Experience
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollToSection('projects')}
+            className="transition-colors duration-150 hover:text-ink-primary cursor-pointer text-sm font-medium"
+          >
+            Work
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollToSection('skills')}
+            className="transition-colors duration-150 hover:text-ink-primary cursor-pointer text-sm font-medium"
+          >
+            Skills
+          </button>
+          <Link
+            href="/blog"
+            className={`transition-colors duration-150 hover:text-ink-primary ${
+              pathname === '/blog' ? 'text-ink-primary font-semibold' : ''
+            }`}
+          >
+            Writing
+          </Link>
+          <button
+            type="button"
+            onClick={() => scrollToSection('about')}
+            className="transition-colors duration-150 hover:text-ink-primary cursor-pointer text-sm font-medium"
+          >
+            About
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollToSection('contact')}
+            className="transition-colors duration-150 hover:text-ink-primary cursor-pointer text-sm font-medium"
+          >
+            Contact
+          </button>
         </nav>
 
-        {/* Actions: Resume + Command Palette Trigger */}
+        {/* Actions: Call + Resume + Command Palette Trigger */}
         <div className="hidden sm:flex items-center gap-3">
+          {/* Direct Call Link */}
+          <a
+            href={`tel:${personalInfo.phone}`}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono text-ink-primary hover:text-white bg-bg-surface hover:bg-bg-elevated border border-bg-subtle hover:border-accent-copper rounded transition-colors"
+            title={`Call Ankit: ${personalInfo.phone}`}
+            aria-label="Direct Phone Call"
+          >
+            <PhoneIcon className="w-3.5 h-3.5 text-accent-copper" />
+            <span>Call</span>
+          </a>
+
           <button
             type="button"
             onClick={openCommandPalette}
@@ -112,6 +174,13 @@ export default function Navbar() {
 
         {/* Mobile menu trigger */}
         <div className="flex sm:hidden items-center gap-2">
+          <a
+            href={`tel:${personalInfo.phone}`}
+            className="p-2 text-ink-primary hover:text-accent-copper"
+            aria-label="Call"
+          >
+            <PhoneIcon className="w-4 h-4 text-accent-copper" />
+          </a>
           <button
             type="button"
             onClick={openCommandPalette}
@@ -158,26 +227,64 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="sm:hidden bg-bg-surface border-b border-bg-subtle px-6 py-4 space-y-3">
           <nav className="flex flex-col space-y-2.5 text-sm">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-ink-muted hover:text-ink-primary py-1 transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+            <button
+              type="button"
+              onClick={() => scrollToSection('experience')}
+              className="text-left text-ink-muted hover:text-ink-primary py-1 transition-colors"
+            >
+              Experience
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection('projects')}
+              className="text-left text-ink-muted hover:text-ink-primary py-1 transition-colors"
+            >
+              Work
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection('skills')}
+              className="text-left text-ink-muted hover:text-ink-primary py-1 transition-colors"
+            >
+              Skills
+            </button>
+            <Link
+              href="/blog"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-ink-muted hover:text-ink-primary py-1 transition-colors"
+            >
+              Writing
+            </Link>
+            <button
+              type="button"
+              onClick={() => scrollToSection('about')}
+              className="text-left text-ink-muted hover:text-ink-primary py-1 transition-colors"
+            >
+              About
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection('contact')}
+              className="text-left text-ink-muted hover:text-ink-primary py-1 transition-colors"
+            >
+              Contact
+            </button>
           </nav>
           <div className="pt-3 border-t border-bg-subtle flex items-center justify-between">
+            <a
+              href={`tel:${personalInfo.phone}`}
+              className="inline-flex items-center gap-1.5 text-xs font-mono text-accent-copper"
+            >
+              <PhoneIcon className="w-3.5 h-3.5" />
+              <span>{personalInfo.phone}</span>
+            </a>
             <a
               href={personalInfo.resumePath}
               download="Ankit_Katole_Software_Engineer_Resume.pdf"
               className="text-xs font-mono uppercase tracking-wide text-ink-primary hover:text-accent-copper"
             >
-              Download Resume (PDF) ↓
+              Resume (PDF) ↓
             </a>
-            <span className="text-xs font-mono text-ink-faint">India</span>
           </div>
         </div>
       )}

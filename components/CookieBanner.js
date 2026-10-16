@@ -28,12 +28,19 @@ export default function CookieBanner() {
     <div
       role="region"
       aria-label="Cookie & Session Preferences"
-      className="fixed bottom-5 right-5 z-50 max-w-sm w-[calc(100vw-2.5rem)] bg-bg-surface/95 border border-accent-border/60 rounded-xl p-4 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-bottom-5 duration-300"
+      className="fixed bottom-5 right-5 z-50 max-w-sm w-[calc(100vw-2.5rem)] bg-bg-surface/95 border border-accent-border/60 rounded-xl p-4 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-bottom-5 duration-300 select-none"
     >
       <div className="flex items-start gap-3">
-        <span className="text-xl select-none" aria-hidden="true">
-          🍪
-        </span>
+        <div className="w-8 h-8 rounded-lg bg-accent-copper/10 border border-accent-copper/30 flex items-center justify-center text-accent-copper flex-shrink-0" aria-hidden="true">
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5" />
+            <path d="M8.5 8.5v.01" />
+            <path d="M16 15.5v.01" />
+            <path d="M12 12v.01" />
+            <path d="M11 17v.01" />
+            <path d="M7 13v.01" />
+          </svg>
+        </div>
         <div className="flex-1 space-y-1">
           <div className="flex items-center justify-between">
             <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-accent-copper">

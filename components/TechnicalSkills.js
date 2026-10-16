@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import SkillIcon from './SkillIcon';
+import HandUnderline from './HandUnderline';
 import { skillsData } from '../lib/data';
 
 export default function TechnicalSkills() {
@@ -18,16 +19,14 @@ export default function TechnicalSkills() {
     <section id="skills" className="py-20 md:py-28 border-b border-bg-subtle">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12 pb-6 border-b border-bg-subtle">
-          <div>
-            <span className="mono-label">Capabilities & Core Stack</span>
-            <h2 className="text-2xl sm:text-4xl font-semibold text-ink-primary mt-2">
+        <div className="mb-12 pb-6 border-b border-bg-subtle">
+          <span className="mono-label">Capabilities & Core Stack</span>
+          <h2 className="section-heading mt-2 block">
+            <span className="relative inline-block pb-1">
               Technical proficiencies
-            </h2>
-          </div>
-          <p className="text-sm font-mono text-ink-muted max-w-md">
-            Direct competencies backed by production code, university rigor, and hands-on delivery.
-          </p>
+              <HandUnderline className="text-accent-copper" />
+            </span>
+          </h2>
         </div>
 
         {/* Filter Pills: Fast Domain Filtering */}

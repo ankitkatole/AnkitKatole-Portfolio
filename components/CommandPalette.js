@@ -12,12 +12,22 @@ export default function CommandPalette() {
   const inputRef = useRef(null);
   const router = useRouter();
 
+  const scrollTo = (id) => {
+    setIsOpen(false);
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      router.push(`/?scroll=${id}`);
+    }
+  };
+
   const commands = [
     {
       category: 'Navigation',
       label: 'Go to Featured Projects',
       shortcut: 'P',
-      action: () => router.push('/#projects')
+      action: () => scrollTo('projects')
     },
     {
       category: 'Diagnostics',
@@ -29,13 +39,13 @@ export default function CommandPalette() {
       category: 'Navigation',
       label: 'View Professional Experience',
       shortcut: 'E',
-      action: () => router.push('/#experience')
+      action: () => scrollTo('experience')
     },
     {
       category: 'Navigation',
       label: 'Inspect Technical Skills',
       shortcut: 'S',
-      action: () => router.push('/#skills')
+      action: () => scrollTo('skills')
     },
     {
       category: 'Navigation',
@@ -47,13 +57,21 @@ export default function CommandPalette() {
       category: 'Navigation',
       label: 'About & Academic Roots',
       shortcut: 'A',
-      action: () => router.push('/#about')
+      action: () => scrollTo('about')
     },
     {
       category: 'Navigation',
       label: 'Contact Information',
       shortcut: 'C',
-      action: () => router.push('/#contact')
+      action: () => scrollTo('contact')
+    },
+    {
+      category: 'Actions',
+      label: 'Call Ankit (+91 9307512981)',
+      shortcut: 'T',
+      action: () => {
+        window.location.href = `tel:${personalInfo.phone}`;
+      }
     },
     {
       category: 'Actions',

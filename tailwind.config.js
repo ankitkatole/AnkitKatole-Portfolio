@@ -31,9 +31,9 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['Manrope', 'var(--font-sans)', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'Outfit', 'var(--font-sans)', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['JetBrains Mono', 'var(--font-mono)', 'monospace'],
-        display: ['Manrope', 'sans-serif']
+        display: ['Outfit', 'Plus Jakarta Sans', 'sans-serif']
       },
       letterSpacing: {
         tightest: '-0.035em',

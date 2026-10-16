@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { personalInfo } from '../lib/data';
+import { GitHubIcon, LinkedInIcon, MediumIcon, LeetCodeIcon, PhoneIcon } from './SocialIcons';
+import HandUnderline from './HandUnderline';
 
 export default function ContactSection() {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -39,21 +41,19 @@ export default function ContactSection() {
     <section id="contact" className="py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-16 pb-6 border-b border-bg-subtle">
-          <div>
-            <span className="mono-label">Get in Touch</span>
-            <h2 className="text-2xl sm:text-4xl font-semibold text-ink-primary mt-2">
+        <div className="mb-16 pb-6 border-b border-bg-subtle">
+          <span className="mono-label">Get in Touch</span>
+          <h2 className="section-heading mt-2 block">
+            <span className="relative inline-block pb-1">
               Start a conversation
-            </h2>
-          </div>
-          <p className="text-sm font-mono text-ink-muted max-w-md">
-            Available for software engineering roles, system design discussions, and open-source collaboration.
-          </p>
+              <HandUnderline className="text-accent-copper" />
+            </span>
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Direct Channels Column (5 cols) */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="lg:col-span-5 space-y-6">
             <div>
               <h3 className="text-lg font-semibold text-ink-primary mb-2">Direct Contact</h3>
               <p className="text-sm text-ink-muted leading-relaxed font-sans">
@@ -82,48 +82,80 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Verified Public Profiles */}
+            {/* Phone / Call Direct Card */}
+            <div className="bg-bg-surface border border-bg-subtle rounded-lg p-5">
+              <div className="text-xs font-mono text-ink-faint uppercase mb-1">Direct Phone / Call</div>
+              <div className="flex items-center justify-between gap-2 mt-1">
+                <a
+                  href={`tel:${personalInfo.phone}`}
+                  className="text-sm font-mono text-ink-primary hover:text-accent-copper transition-colors inline-flex items-center gap-2"
+                >
+                  <PhoneIcon className="w-4 h-4 text-accent-copper" />
+                  <span>{personalInfo.phone}</span>
+                </a>
+                <a
+                  href={`tel:${personalInfo.phone}`}
+                  className="px-2.5 py-1 text-xs font-mono bg-bg-elevated hover:bg-bg-subtle border border-bg-subtle text-ink-muted hover:text-ink-primary rounded transition-colors whitespace-nowrap"
+                >
+                  Call Now ↗
+                </a>
+              </div>
+            </div>
+
+            {/* Verified Public Profiles with official SVG Icons */}
             <div className="space-y-3">
               <div className="text-xs font-mono text-ink-faint uppercase">Verified Profiles</div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
+              <div className="grid grid-cols-2 gap-3 text-xs font-mono">
                 <a
                   href={personalInfo.links.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-bg-surface hover:bg-bg-elevated border border-bg-subtle rounded text-ink-muted hover:text-ink-primary transition-colors flex items-center justify-between"
+                  className="p-3 bg-bg-surface hover:bg-bg-elevated border border-bg-subtle hover:border-accent-copper/60 rounded-lg text-ink-muted hover:text-ink-primary transition-all flex items-center justify-between group"
                 >
-                  <span>GitHub</span>
-                  <span>↗</span>
+                  <div className="flex items-center gap-2.5">
+                    <GitHubIcon className="w-4 h-4 text-ink-primary group-hover:text-accent-copper transition-colors" />
+                    <span className="text-ink-primary font-medium">GitHub</span>
+                  </div>
+                  <span className="text-ink-faint group-hover:text-accent-copper group-hover:translate-x-0.5 transition-all">↗</span>
                 </a>
 
                 <a
                   href={personalInfo.links.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-bg-surface hover:bg-bg-elevated border border-bg-subtle rounded text-ink-muted hover:text-ink-primary transition-colors flex items-center justify-between"
+                  className="p-3 bg-bg-surface hover:bg-bg-elevated border border-bg-subtle hover:border-accent-copper/60 rounded-lg text-ink-muted hover:text-ink-primary transition-all flex items-center justify-between group"
                 >
-                  <span>LinkedIn</span>
-                  <span>↗</span>
+                  <div className="flex items-center gap-2.5">
+                    <LinkedInIcon className="w-4 h-4 text-ink-primary group-hover:text-accent-copper transition-colors" />
+                    <span className="text-ink-primary font-medium">LinkedIn</span>
+                  </div>
+                  <span className="text-ink-faint group-hover:text-accent-copper group-hover:translate-x-0.5 transition-all">↗</span>
                 </a>
 
                 <a
                   href={personalInfo.links.medium}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-bg-surface hover:bg-bg-elevated border border-bg-subtle hover:border-accent-copper/60 rounded text-ink-muted hover:text-ink-primary transition-colors flex items-center justify-between"
+                  className="p-3 bg-bg-surface hover:bg-bg-elevated border border-bg-subtle hover:border-accent-copper/60 rounded-lg text-ink-muted hover:text-ink-primary transition-all flex items-center justify-between group"
                 >
-                  <span>Medium</span>
-                  <span className="text-accent-copper">↗</span>
+                  <div className="flex items-center gap-2.5">
+                    <MediumIcon className="w-4 h-4 text-ink-primary group-hover:text-accent-copper transition-colors" />
+                    <span className="text-ink-primary font-medium">Medium</span>
+                  </div>
+                  <span className="text-ink-faint group-hover:text-accent-copper group-hover:translate-x-0.5 transition-all">↗</span>
                 </a>
 
                 <a
                   href={personalInfo.links.leetcode}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-bg-surface hover:bg-bg-elevated border border-bg-subtle rounded text-ink-muted hover:text-ink-primary transition-colors flex items-center justify-between"
+                  className="p-3 bg-bg-surface hover:bg-bg-elevated border border-bg-subtle hover:border-accent-copper/60 rounded-lg text-ink-muted hover:text-ink-primary transition-all flex items-center justify-between group"
                 >
-                  <span>LeetCode</span>
-                  <span>↗</span>
+                  <div className="flex items-center gap-2.5">
+                    <LeetCodeIcon className="w-4 h-4 text-ink-primary group-hover:text-accent-copper transition-colors" />
+                    <span className="text-ink-primary font-medium">LeetCode</span>
+                  </div>
+                  <span className="text-ink-faint group-hover:text-accent-copper group-hover:translate-x-0.5 transition-all">↗</span>
                 </a>
               </div>
             </div>
@@ -148,12 +180,9 @@ export default function ContactSection() {
 
           {/* Contact Message Form (7 cols) */}
           <div className="lg:col-span-7 bg-bg-surface border border-bg-subtle rounded-lg p-6 sm:p-8">
-            <h3 className="text-lg font-semibold text-ink-primary mb-1">
+            <h3 className="text-lg font-semibold text-ink-primary mb-5">
               Send a Message
             </h3>
-            <p className="text-xs font-mono text-ink-muted mb-6">
-              Submissions open your native email client with your message pre-composed.
-            </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
