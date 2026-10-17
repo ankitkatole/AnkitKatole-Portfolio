@@ -7,7 +7,7 @@ tags: ["Kafka", "Spring Boot", "Microservices", "Java"]
 draft: false
 ---
 
-In distributed architectures, message queues and event brokers are often treated as mere message pipes. However, when building mission-critical services—such as telecommunications order provisioning systems—handling consumer failure gracefully is what separates robust production systems from fragile ones.
+In distributed architectures, message queues and event brokers are often treated as mere message pipes. However, when building mission-critical services - such as telecommunications order provisioning systems - handling consumer failure gracefully is what separates robust production systems from fragile ones.
 
 When a downstream database or third-party carrier API experiences transient downtime, a naive Kafka consumer will either:
 1. Crash and retry indefinitely, stalling offset progression on the assigned partition and causing huge consumer lag.

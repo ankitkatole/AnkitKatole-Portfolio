@@ -12,7 +12,7 @@ import { personalInfo } from '../lib/data';
 export const metadata = {
   metadataBase: new URL('https://ankitkatole.dev'),
   title: {
-    default: 'Ankit Katole — Software Engineer | Java, Spring Boot & Distributed Systems',
+    default: 'Ankit Katole - Software Engineer | Java, Spring Boot & Distributed Systems',
     template: '%s | Ankit Katole'
   },
   description:
@@ -36,14 +36,14 @@ export const metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://ankitkatole.dev',
-    title: 'Ankit Katole — Software Engineer | Java, Spring Boot & Microservices',
+    title: 'Ankit Katole - Software Engineer | Java, Spring Boot & Microservices',
     description:
       'Backend-focused Software Engineer engineering resilient microservices, high-throughput APIs, and enterprise order management systems.',
     siteName: 'Ankit Katole Portfolio'
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ankit Katole — Software Engineer',
+    title: 'Ankit Katole - Software Engineer',
     description: 'Java, Spring Boot, Microservices, and Distributed Backend Architecture.'
   },
   robots: {

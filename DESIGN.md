@@ -1,6 +1,6 @@
 # Design System & Architectural Standards
 
-**Ankit Katole — Personal Developer Portfolio & Engineering Journal**  
+**Ankit Katole - Personal Developer Portfolio & Engineering Journal**  
 *Art Direction: Premium Tech Meets Quiet Luxury*
 
 ---
