@@ -163,7 +163,7 @@ export default function ChatBot() {
         id: 'initial',
         role: 'assistant',
         content:
-          "Hello, I am Ankit's AI Assistant. Ask me anything about Ankit's experience at Capgemini, technical projects, or skills.",
+          "Hello, I am Ankit's AI Assistant. Ask me anything about Ankit's experience, technical projects, or skills.",
         isInitial: true
       }
     ]);
@@ -394,16 +394,14 @@ export default function ChatBot() {
             {messages.map((msg) => (
               <div
                 key={msg.id}
-                className={`flex flex-col ${
-                  msg.role === 'user' ? 'items-end' : 'items-start'
-                }`}
+                className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'
+                  }`}
               >
                 <div
-                  className={`max-w-[85%] rounded-xl px-3.5 py-2.5 text-xs shadow-md ${
-                    msg.role === 'user'
-                      ? 'bg-accent-copper/20 border border-accent-copper/60 text-ink-primary rounded-br-xs'
-                      : 'bg-bg-surface border border-bg-subtle text-ink-muted rounded-bl-xs'
-                  }`}
+                  className={`max-w-[85%] rounded-xl px-3.5 py-2.5 text-xs shadow-md ${msg.role === 'user'
+                    ? 'bg-accent-copper/20 border border-accent-copper/60 text-ink-primary rounded-br-xs'
+                    : 'bg-bg-surface border border-bg-subtle text-ink-muted rounded-bl-xs'
+                    }`}
                 >
                   {msg.role === 'assistant' ? (
                     msg.isInitial ? (
