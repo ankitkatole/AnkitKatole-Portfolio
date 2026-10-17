@@ -286,8 +286,8 @@ export default function ChatBot() {
 
   return (
     <>
-      {/* Floating Roblox-Themed Launcher Button (Bottom Right, beside Avatar) */}
-      <div className="fixed bottom-6 right-20 sm:bottom-8 sm:right-24 z-40 select-none">
+      {/* Floating Roblox-Themed Launcher Button (Anchored to right wall of screen) */}
+      <div className="fixed bottom-6 right-4 sm:bottom-8 sm:right-6 z-40 select-none">
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
@@ -328,7 +328,7 @@ export default function ChatBot() {
           aria-modal="true"
           aria-label="Ankit's AI Assistant"
           data-lenis-prevent="true"
-          className="fixed bottom-24 right-4 sm:right-8 z-50 w-[calc(100vw-2rem)] sm:w-[440px] h-[580px] max-h-[82vh] flex flex-col bg-[#161311]/95 border border-accent-border/80 rounded-2xl shadow-2xl backdrop-blur-xl animate-in zoom-in-95 fade-in duration-200 overflow-hidden font-sans"
+          className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[440px] h-[580px] max-h-[82vh] flex flex-col bg-[#161311]/95 border border-accent-border/80 rounded-2xl shadow-2xl backdrop-blur-xl animate-in zoom-in-95 fade-in duration-200 overflow-hidden font-sans"
         >
           {/* Header */}
           <div className="px-4 py-3 bg-[#1F1B17]/90 border-b border-bg-subtle flex items-center justify-between flex-shrink-0 select-none">

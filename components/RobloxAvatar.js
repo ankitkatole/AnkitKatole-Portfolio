@@ -4,15 +4,16 @@ import { useState, useEffect, useRef } from 'react';
 
 const MESSAGES = [
   'Welcome to Ankit\'s engineering portfolio.',
-  'Click Ask AI to chat with my Spring Boot RAG backend.',
+  'Click Ask AI to chat with my AI assistant.',
   'Double-click to collapse into a minimal block.',
   'All backend services are 100% operational.',
-  'Engineered with Java, Spring Boot, and RAG.',
+  'Engineered with Java, Spring Boot, and distributed systems.',
   'Available for backend & distributed engineering.'
 ];
 
 export default function RobloxAvatar() {
-  const [position, setPosition] = useState({ x: 32, y: 32 }); // offset from bottom-right
+  // Positioned immediately to the left of Ask AI (Ask AI is at right: 16px-24px, width: ~135px)
+  const [position, setPosition] = useState({ x: 175, y: 32 });
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [msgIndex, setMsgIndex] = useState(0);
@@ -22,6 +23,17 @@ export default function RobloxAvatar() {
 
   const avatarRef = useRef(null);
   const clickTimeoutRef = useRef(null);
+
+  // Set initial position to the left of Ask AI launcher across screen sizes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const isMobile = window.innerWidth < 640;
+      setPosition({
+        x: isMobile ? 155 : 175,
+        y: isMobile ? 24 : 32
+      });
+    }
+  }, []);
 
   // Cycle messages automatically every 8 seconds
   useEffect(() => {
@@ -138,10 +150,10 @@ export default function RobloxAvatar() {
       }}
       className="fixed z-40 select-none touch-none"
     >
-      {/* Editorial Frosted Speech Bubble (Extends cleanly leftward from bottom-right) */}
+      {/* Editorial Frosted Speech Bubble (Extends cleanly leftward above avatar) */}
       {showBubble && (
         <div
-          className="absolute -top-12 right-0 whitespace-nowrap bg-bg-surface/95 text-ink-primary border border-accent-copper/60 rounded-full px-3.5 py-1 text-[11px] font-mono shadow-2xl backdrop-blur-md animate-in fade-in zoom-in-95 duration-200 pointer-events-auto cursor-pointer hover:border-accent-copper"
+          className="absolute -top-12 right-0 max-w-[210px] sm:max-w-none truncate sm:whitespace-nowrap bg-bg-surface/95 text-ink-primary border border-accent-copper/60 rounded-full px-3.5 py-1 text-[11px] font-mono shadow-2xl backdrop-blur-md animate-in fade-in zoom-in-95 duration-200 pointer-events-auto cursor-pointer hover:border-accent-copper"
           onClick={() => {
             if (isFolded) {
               setIsFolded(false);
