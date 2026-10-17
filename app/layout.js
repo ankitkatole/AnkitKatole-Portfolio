@@ -59,7 +59,8 @@ export const metadata = {
         url: 'https://i.postimg.cc/MpssQPSL/image.png',
         width: 1200,
         height: 630,
-        alt: 'Ankit Katole - Software Engineer'
+        alt: 'Ankit Katole - Software Engineer',
+        type: 'image/png'
       }
     ]
   },

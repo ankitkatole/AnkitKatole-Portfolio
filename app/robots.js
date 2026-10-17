@@ -7,7 +7,7 @@ export default function robots() {
         disallow: ['/api/']
       },
       {
-        userAgent: ['Googlebot', 'Googlebot-Image', 'Bingbot'],
+        userAgent: ['Googlebot', 'Googlebot-Image', 'Bingbot', 'LinkedInBot'],
         allow: '/'
       },
       {
