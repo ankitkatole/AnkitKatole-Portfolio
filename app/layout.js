@@ -42,7 +42,7 @@ export const metadata = {
     'Capgemini Engineer'
   ],
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || 'google-site-verification-pending'
+    google: '946cfSVTYTNqmoHUh8sIjfYjCXL_pAhDIaJQn4IETyM'
   },
   authors: [{ name: 'Ankit Katole', url: 'https://github.com/ankitkatole' }],
   creator: 'Ankit Katole',
