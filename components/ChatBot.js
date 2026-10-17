@@ -145,8 +145,7 @@ export default function ChatBot() {
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
-  const API_URL =
-    process.env.NEXT_PUBLIC_CHAT_API_URL || 'https://portfoliobe-w7nt.onrender.com/api/v1/chat';
+  const API_URL = process.env.NEXT_PUBLIC_CHAT_API_URL;
 
   // Initialize conversation and listen for custom trigger events
   useEffect(() => {
