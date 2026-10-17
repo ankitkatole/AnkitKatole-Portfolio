@@ -14,7 +14,7 @@ Ankit Katole is a backend-focused Software Engineer at Capgemini specializing in
 ## Peer-Reviewed Research Publication
 - **Title**: A Blockchain-Based Decentralized Dataset Marketplace for Secure Data Sharing and Monetization
 - **Journal**: International Journal of Advance Research Publication and Reviews (IJARPR)
-- **Citation**: Volume 2, Issue 11, November 2025, Pages 90-100, ISSN: 2582-7421
+- **Citation**: Volume 2, Issue 11, November 2025, ISSN: 2582-7421
 - **Authors**: Mrs. Hemlata Kosare, Akshat Tomar, Ankit Katole, Jayesh Kahate, Jitesh Varade, Gajendra Naphade
 - **Direct PDF URL**: https://ijarpr.com/uploads/V2ISSUE11/IJARPR1114.pdf
 - **Key Concepts**: Ethereum Smart Contracts, InterPlanetary File System (IPFS), Decentralized Storage, Cryptographic Ownership Verification, Trustless Data Monetization.

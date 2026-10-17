@@ -19,63 +19,59 @@ export default function WritingSection() {
           </h2>
         </div>
 
-        {/* Medium Profile Showcase (Bold, attractive card with proper icon & clear profile redirection) */}
+        {/* Medium Profile Showcase */}
         <div className="mb-10 relative overflow-hidden rounded-2xl border border-accent-border/70 bg-gradient-to-br from-[#1C1815] via-[#221C18] to-[#181512] p-6 sm:p-9 shadow-2xl">
-          {/* Ambient copper glow effects */}
+          {/* Ambient copper glow */}
           <div className="absolute -top-24 -right-24 w-72 h-72 bg-accent-copper/15 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-accent-copper/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-            <div className="space-y-4 max-w-2xl">
+            <div className="space-y-3 max-w-2xl">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-bg-surface border border-accent-border flex items-center justify-center text-accent-copper shadow-inner">
+                <div className="w-12 h-12 rounded-xl bg-bg-surface border border-accent-border flex items-center justify-center text-accent-copper shadow-inner flex-shrink-0">
                   <MediumIcon className="w-7 h-7" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-mono uppercase tracking-wider text-accent-copper font-medium">
-                      Medium Profile
+                      Medium
                     </span>
                     <span className="w-1.5 h-1.5 rounded-full bg-status-online" />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-ink-primary tracking-tight">
-                    Technical Articles on Medium
+                    Visit my Medium
                   </h3>
                 </div>
               </div>
 
               <p className="text-sm sm:text-base text-ink-muted leading-relaxed font-normal">
-                I write technical deep-dives on distributed systems, Spring Boot microservice patterns, Kafka event streaming, and clean backend architecture. Read my full catalog of articles directly on Medium.
+                Read my engineering articles, architectural insights, and technical notes directly on Medium.
               </p>
 
-              <div className="flex flex-wrap items-center gap-2 pt-1 text-xs font-mono">
-                <span className="text-ink-faint">Publication handle:</span>
-                <span className="text-accent-copper bg-accent-muted/80 px-2.5 py-0.5 rounded border border-accent-border/50">
-                  @unemployedEngineer
-                </span>
-                <span className="text-ink-faint hidden sm:inline">·</span>
-                <span className="text-ink-muted hidden sm:inline">Java 8+ · Microservices · Kafka · Spring AI</span>
+              <div className="flex items-center gap-2 pt-1 text-xs font-mono">
+                <span className="text-ink-faint">Medium:</span>
+                <span className="text-ink-primary font-medium">@unemployedEngineer</span>
               </div>
             </div>
 
-            {/* Prominent Call to Action sending user to Medium page */}
-            <div className="flex flex-col sm:flex-row lg:flex-col items-stretch sm:items-center lg:items-end gap-3 flex-shrink-0">
+            {/* High-Contrast, Crystal Clear Call to Action Button */}
+            <div className="flex flex-col sm:flex-row lg:flex-col items-stretch sm:items-center lg:items-end gap-2.5 flex-shrink-0">
               <a
                 href={personalInfo.links.medium}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 text-sm font-semibold text-bg-primary bg-ink-primary hover:bg-white rounded-xl transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-[1.02] active:scale-95"
+                className="group inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-white bg-accent-copper hover:bg-accent-hover rounded-xl transition-all duration-200 shadow-xl active:scale-95"
                 title="Visit Ankit Katole's Medium Profile"
               >
-                <MediumIcon className="w-5 h-5 text-bg-primary" />
-                <span>Go to my profile</span>
-                <span className="text-bg-primary transition-transform group-hover:translate-x-1 font-mono text-base">
+                <MediumIcon className="w-5 h-5 text-white flex-shrink-0" />
+                <span className="text-white font-semibold">Visit my Medium</span>
+                <span className="text-white transition-transform group-hover:translate-x-1 font-mono text-base">
                   →
                 </span>
               </a>
 
               <span className="text-center sm:text-right text-[11px] font-mono text-ink-faint">
-                Opens medium.com/@unemployedEngineer
+                medium.com/@unemployedEngineer
               </span>
             </div>
           </div>
@@ -94,7 +90,7 @@ export default function WritingSection() {
                 </span>
               </div>
               <span className="text-xs font-mono text-ink-faint">
-                {publication.period} · {publication.pages}
+                {publication.period}
               </span>
             </div>
 
@@ -102,22 +98,22 @@ export default function WritingSection() {
               {publication.title}
             </h3>
 
-            {/* Authors List */}
-            <div className="text-xs font-mono text-ink-muted mb-4 flex flex-wrap items-center gap-1.5">
+            {/* Authors List (Clean, High-Contrast Typography without muddy background blocks) */}
+            <div className="text-xs font-mono text-ink-muted mb-4 flex flex-wrap items-center gap-1.5 leading-relaxed">
               <span className="text-ink-faint">Authors:</span>
               {publication.authors.map((author, idx) => (
                 <span key={idx} className="inline-flex items-center">
                   <span
                     className={
                       author.isHighlighted
-                        ? 'text-accent-copper font-semibold bg-accent-muted/60 px-1.5 py-0.5 rounded'
+                        ? 'text-ink-primary font-bold underline decoration-accent-copper decoration-2 underline-offset-4'
                         : 'text-ink-muted'
                     }
                   >
                     {author.name}
                   </span>
                   {idx < publication.authors.length - 1 && (
-                    <span className="text-ink-faint ml-1">,</span>
+                    <span className="text-ink-faint mr-1">,</span>
                   )}
                 </span>
               ))}
@@ -140,15 +136,15 @@ export default function WritingSection() {
                 ))}
               </div>
 
-              {/* Direct Website / PDF Link */}
+              {/* Direct Website / PDF Link with High Contrast */}
               <a
                 href={publication.pdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-medium text-bg-primary bg-accent-copper hover:bg-white rounded-lg transition-all duration-150 group shadow-md"
+                className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold text-white bg-accent-copper hover:bg-accent-hover rounded-lg transition-all duration-150 group shadow-md"
               >
-                <span>Read Journal Publication (PDF)</span>
-                <span className="transition-transform group-hover:translate-x-0.5 font-mono">↗</span>
+                <span className="text-white">Read Journal Publication (PDF)</span>
+                <span className="text-white transition-transform group-hover:translate-x-0.5 font-mono">↗</span>
               </a>
             </div>
           </div>
