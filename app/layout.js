@@ -40,12 +40,21 @@ export const metadata = {
     title: 'Ankit Katole - Software Engineer | Java, Spring Boot & Microservices',
     description:
       'Backend-focused Software Engineer engineering resilient microservices, high-throughput APIs, and enterprise order management systems.',
-    siteName: 'Ankit Katole Portfolio'
+    siteName: 'Ankit Katole Portfolio',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Ankit Katole - Software Engineer Portfolio'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ankit Katole - Software Engineer',
-    description: 'Java, Spring Boot, Microservices, and Distributed Backend Architecture.'
+    title: 'Ankit Katole - Software Engineer | Java, Spring Boot & Microservices',
+    description: 'Backend-focused Software Engineer engineering resilient microservices, high-throughput APIs, and enterprise order management systems.',
+    images: ['/og-image.png']
   },
   robots: {
     index: true,
