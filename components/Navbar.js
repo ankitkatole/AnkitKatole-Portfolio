@@ -121,20 +121,19 @@ export default function Navbar() {
           >
             Skills
           </button>
-          <Link
-            href="/blog"
-            className={`transition-colors duration-150 hover:text-ink-primary ${
-              pathname === '/blog' ? 'text-ink-primary font-semibold' : ''
-            }`}
-          >
-            Writing
-          </Link>
           <button
             type="button"
             onClick={() => scrollToSection('about')}
             className="transition-colors duration-150 hover:text-ink-primary cursor-pointer text-sm font-medium"
           >
             About
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollToSection('writing')}
+            className="transition-colors duration-150 hover:text-ink-primary cursor-pointer text-sm font-medium"
+          >
+            Writing
           </button>
           <button
             type="button"
@@ -278,19 +277,19 @@ export default function Navbar() {
             >
               Skills
             </button>
-            <Link
-              href="/blog"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-ink-muted hover:text-ink-primary py-1 transition-colors"
-            >
-              Writing
-            </Link>
             <button
               type="button"
               onClick={() => scrollToSection('about')}
               className="text-left text-ink-muted hover:text-ink-primary py-1 transition-colors"
             >
               About
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection('writing')}
+              className="text-left text-ink-muted hover:text-ink-primary py-1 transition-colors"
+            >
+              Writing
             </button>
             <button
               type="button"

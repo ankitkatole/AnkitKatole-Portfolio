@@ -3,6 +3,7 @@ import ExperienceTimeline from '../components/ExperienceTimeline';
 import SelectedProjects from '../components/SelectedProjects';
 import TechnicalSkills from '../components/TechnicalSkills';
 import AboutSection from '../components/AboutSection';
+import WritingSection from '../components/WritingSection';
 import ContactSection from '../components/ContactSection';
 import ScrollReveal from '../components/ScrollReveal';
 
@@ -21,6 +22,9 @@ export default function HomePage() {
       </ScrollReveal>
       <ScrollReveal delay={50}>
         <AboutSection />
+      </ScrollReveal>
+      <ScrollReveal delay={50}>
+        <WritingSection />
       </ScrollReveal>
       <ScrollReveal delay={50}>
         <ContactSection />

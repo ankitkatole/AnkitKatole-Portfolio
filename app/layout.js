@@ -57,39 +57,101 @@ export const metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1
     }
+  },
+  alternates: {
+    canonical: 'https://ankitkatole.dev'
   }
 };
 
 export default function RootLayout({ children }) {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: personalInfo.name,
-    jobTitle: personalInfo.title,
-    worksFor: {
-      '@type': 'Organization',
-      name: 'Capgemini'
-    },
-    alumniOf: {
-      '@type': 'CollegeOrUniversity',
-      name: 'G H Raisoni College of Engineering and Management'
-    },
-    url: 'https://ankitkatole.dev',
-    sameAs: [
-      personalInfo.links.github,
-      personalInfo.links.linkedin,
-      personalInfo.links.leetcode
-    ],
-    knowsAbout: [
-      'Java',
-      'Spring Boot',
-      'Microservices',
-      'REST APIs',
-      'Kafka',
-      'MySQL',
-      'Docker',
-      'Spring AI',
-      'MERN Stack'
+    '@graph': [
+      {
+        '@type': 'Person',
+        '@id': 'https://ankitkatole.dev/#person',
+        name: personalInfo.name,
+        jobTitle: personalInfo.title,
+        telephone: personalInfo.phone,
+        email: personalInfo.email,
+        worksFor: {
+          '@type': 'Organization',
+          name: 'Capgemini'
+        },
+        alumniOf: {
+          '@type': 'CollegeOrUniversity',
+          name: 'G H Raisoni College of Engineering and Management'
+        },
+        url: 'https://ankitkatole.dev',
+        sameAs: [
+          personalInfo.links.github,
+          personalInfo.links.linkedin,
+          personalInfo.links.leetcode,
+          personalInfo.links.medium,
+          personalInfo.links.whatsapp
+        ],
+        knowsAbout: [
+          'Java 8+',
+          'Spring Boot',
+          'Microservices Architecture',
+          'Apache Kafka',
+          'REST APIs',
+          'MySQL',
+          'Spring Security',
+          'Spring AI',
+          'Docker',
+          'Distributed Systems',
+          'Blockchain'
+        ]
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://ankitkatole.dev/#website',
+        url: 'https://ankitkatole.dev',
+        name: 'Ankit Katole - Software Engineer',
+        description: 'Portfolio, verified engineering projects, and research publications of Ankit Katole.',
+        publisher: {
+          '@id': 'https://ankitkatole.dev/#person'
+        }
+      },
+      {
+        '@type': 'ProfilePage',
+        '@id': 'https://ankitkatole.dev/#profilepage',
+        url: 'https://ankitkatole.dev',
+        name: 'Ankit Katole Engineering Profile',
+        mainEntity: {
+          '@id': 'https://ankitkatole.dev/#person'
+        }
+      },
+      {
+        '@type': 'ScholarlyArticle',
+        '@id': 'https://ijarpr.com/uploads/V2ISSUE11/IJARPR1114.pdf',
+        headline: 'A Blockchain-Based Decentralized Dataset Marketplace for Secure Data Sharing and Monetization',
+        name: 'A Blockchain-Based Decentralized Dataset Marketplace for Secure Data Sharing and Monetization',
+        author: [
+          { '@type': 'Person', name: 'Mrs. Hemlata Kosare' },
+          { '@type': 'Person', name: 'Akshat Tomar' },
+          { '@type': 'Person', name: 'Ankit Katole', url: 'https://ankitkatole.dev' },
+          { '@type': 'Person', name: 'Jayesh Kahate' },
+          { '@type': 'Person', name: 'Jitesh Varade' },
+          { '@type': 'Person', name: 'Gajendra Naphade' }
+        ],
+        publisher: {
+          '@type': 'Organization',
+          name: 'International Journal of Advance Research Publication and Reviews (IJARPR)'
+        },
+        url: 'https://ijarpr.com/uploads/V2ISSUE11/IJARPR1114.pdf',
+        datePublished: '2025-11',
+        inLanguage: 'en-US',
+        keywords: [
+          'Blockchain',
+          'Smart Contracts',
+          'IPFS',
+          'Decentralized Storage',
+          'Data Monetization'
+        ],
+        description: 'A decentralized peer-to-peer framework for secure dataset trading and monetization without reliance on centralized data brokers.'
+      }
     ]
   };
 
