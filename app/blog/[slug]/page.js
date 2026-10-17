@@ -29,12 +29,21 @@ export async function generateMetadata({ params }) {
       type: 'article',
       publishedTime: post.publishedAt,
       authors: [personalInfo.name],
-      tags: post.tags
+      tags: post.tags,
+      images: [
+        {
+          url: 'https://i.postimg.cc/MpssQPSL/image.png',
+          width: 1200,
+          height: 630,
+          alt: post.title
+        }
+      ]
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
-      description: post.description
+      description: post.description,
+      images: ['https://i.postimg.cc/MpssQPSL/image.png']
     }
   };
 }
