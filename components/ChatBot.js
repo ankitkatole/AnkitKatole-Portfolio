@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { personalInfo } from '../lib/data';
-import { PhoneIcon, MailIcon, WhatsAppIcon } from './SocialIcons';
+import { MailIcon, WhatsAppIcon } from './SocialIcons';
 
 const QUICK_QUESTIONS = [
   "Tell me about Ankit's experience at Capgemini",
@@ -51,7 +51,6 @@ function renderFormattedMarkdown(text) {
 }
 
 function formatInline(str) {
-  // Simple bold replacement **bold**
   const parts = [];
   const regex = /\*\*(.*?)\*\*/g;
   let lastIndex = 0;
@@ -142,6 +141,7 @@ export default function ChatBot() {
   const [isLoading, setIsLoading] = useState(false);
   const [conversationId, setConversationId] = useState('');
 
+  const messagesContainerRef = useRef(null);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -163,7 +163,7 @@ export default function ChatBot() {
         id: 'initial',
         role: 'assistant',
         content:
-          "Hello, I am Ankit's AI Assistant powered by his Spring Boot RAG backend. Ask me anything about his architecture experience at Capgemini, Java & distributed systems projects, or technical skills.",
+          "Hello, I am Ankit's AI Assistant. Ask me anything about Ankit's experience at Capgemini, technical projects, or skills.",
         isInitial: true
       }
     ]);
@@ -174,9 +174,15 @@ export default function ChatBot() {
   }, []);
 
   // Auto scroll to bottom
+  const scrollToBottom = () => {
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+    }
+  };
+
   useEffect(() => {
     if (isOpen) {
-      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+      scrollToBottom();
     }
   }, [messages, isOpen, isLoading]);
 
@@ -248,7 +254,7 @@ export default function ChatBot() {
           id: assistantMessageId,
           role: 'assistant',
           content:
-            "I encountered a temporary connection issue reaching the Spring Boot RAG service on Render. You can contact Ankit directly via WhatsApp or Email below.",
+            "I encountered a temporary connection issue. You can contact Ankit directly via WhatsApp or Email below.",
           sources: []
         }
       ]);
@@ -273,7 +279,7 @@ export default function ChatBot() {
         id: 'initial-' + Date.now(),
         role: 'assistant',
         content:
-          "Conversation restarted. Ask me anything about Ankit's backend architecture, projects, or experience.",
+          "Conversation restarted. Ask me anything about Ankit's experience, projects, or skills.",
         isInitial: true
       }
     ]);
@@ -288,7 +294,7 @@ export default function ChatBot() {
           onClick={() => setIsOpen((prev) => !prev)}
           className="group relative flex items-center gap-2.5 px-3.5 py-2.5 bg-[#1F1B17] hover:bg-[#2A241F] border border-accent-copper/70 hover:border-accent-copper rounded-xl shadow-2xl transition-all duration-200 active:scale-95"
           aria-label={isOpen ? 'Close AI Chat' : 'Open AI Chat with Ankit'}
-          title="Chat with Ankit's Spring Boot RAG AI Assistant"
+          title="Chat with Ankit's AI Assistant"
         >
           {/* Ambient Glow */}
           <div className="absolute -inset-0.5 rounded-xl bg-accent-copper/20 blur-sm pointer-events-none group-hover:bg-accent-copper/30 transition-all" />
@@ -311,7 +317,7 @@ export default function ChatBot() {
               <span>Ask AI</span>
               <span className="w-1.5 h-1.5 rounded-full bg-status-online animate-pulse" />
             </span>
-            <span className="text-[10px] font-mono text-accent-copper">RAG Assistant</span>
+            <span className="text-[10px] font-mono text-accent-copper">AI Assistant</span>
           </div>
         </button>
       </div>
@@ -322,10 +328,11 @@ export default function ChatBot() {
           role="dialog"
           aria-modal="true"
           aria-label="Ankit's AI Assistant"
-          className="fixed bottom-24 right-4 sm:right-8 z-50 w-[calc(100vw-2rem)] sm:w-[440px] h-[580px] max-h-[82vh] flex flex-col bg-[#161311]/95 border border-accent-border/80 rounded-2xl shadow-2xl backdrop-blur-xl animate-in zoom-in-95 fade-in duration-200 overflow-hidden font-sans select-none"
+          data-lenis-prevent="true"
+          className="fixed bottom-24 right-4 sm:right-8 z-50 w-[calc(100vw-2rem)] sm:w-[440px] h-[580px] max-h-[82vh] flex flex-col bg-[#161311]/95 border border-accent-border/80 rounded-2xl shadow-2xl backdrop-blur-xl animate-in zoom-in-95 fade-in duration-200 overflow-hidden font-sans"
         >
           {/* Header */}
-          <div className="px-4 py-3 bg-[#1F1B17]/90 border-b border-bg-subtle flex items-center justify-between">
+          <div className="px-4 py-3 bg-[#1F1B17]/90 border-b border-bg-subtle flex items-center justify-between flex-shrink-0 select-none">
             <div className="flex items-center gap-2.5">
               {/* Voxel Avatar Badge */}
               <div className="w-7 h-7 bg-[#E8DFD0] border border-[#332E29] rounded-[3px] flex items-center justify-center relative flex-shrink-0">
@@ -341,8 +348,8 @@ export default function ChatBot() {
                   <h3 className="text-xs font-semibold text-ink-primary">Ankit&apos;s AI Assistant</h3>
                   <span className="w-1.5 h-1.5 rounded-full bg-status-online" />
                 </div>
-                <div className="text-[10px] font-mono text-accent-copper">
-                  Spring Boot RAG Online
+                <div className="text-[10px] font-mono text-ink-faint">
+                  Online
                 </div>
               </div>
             </div>
@@ -371,8 +378,19 @@ export default function ChatBot() {
             </div>
           </div>
 
-          {/* Messages Container */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-4 select-text">
+          {/* Scrollable Messages Container with native scroll & Lenis prevention */}
+          <div
+            ref={messagesContainerRef}
+            data-lenis-prevent="true"
+            onWheel={(e) => e.stopPropagation()}
+            onTouchMove={(e) => e.stopPropagation()}
+            className="flex-1 min-h-0 p-4 overflow-y-auto overscroll-contain space-y-4 select-text"
+            style={{
+              scrollbarWidth: 'thin',
+              scrollbarColor: 'rgba(196, 130, 89, 0.4) transparent',
+              WebkitOverflowScrolling: 'touch'
+            }}
+          >
             {messages.map((msg) => (
               <div
                 key={msg.id}
@@ -394,6 +412,7 @@ export default function ChatBot() {
                       <TypewriterMessage
                         text={msg.content}
                         sources={msg.sources}
+                        onComplete={scrollToBottom}
                       />
                     )
                   ) : (
@@ -404,6 +423,28 @@ export default function ChatBot() {
                 </div>
               </div>
             ))}
+
+            {/* Quick Suggested Questions (Inside messages flow so they scroll naturally and only appear at the start) */}
+            {messages.length === 1 && !isLoading && (
+              <div className="pt-2 space-y-2 select-none">
+                <div className="text-[10px] font-mono text-ink-faint uppercase tracking-wider">
+                  Suggested Questions:
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  {QUICK_QUESTIONS.map((q, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => handleSend(q)}
+                      className="px-3 py-2 text-xs font-sans text-ink-muted hover:text-ink-primary bg-bg-surface hover:bg-bg-elevated border border-bg-subtle hover:border-accent-copper/60 rounded-lg text-left transition-colors flex items-center justify-between group"
+                    >
+                      <span>{q}</span>
+                      <span className="text-ink-faint group-hover:text-accent-copper font-mono text-[11px]">→</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Roblox-Themed Jumping Voxel Cubes Loading Indicator */}
             {isLoading && (
@@ -416,7 +457,7 @@ export default function ChatBot() {
                     <div className="w-2.5 h-2.5 bg-accent-copper/40 rounded-xs animate-bounce" style={{ animationDelay: '300ms' }} />
                   </div>
                   <div className="text-[10px] font-mono text-ink-faint">
-                    Querying Spring Boot RAG Knowledge Base...
+                    Agent is thinking...
                   </div>
                 </div>
               </div>
@@ -425,24 +466,8 @@ export default function ChatBot() {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Quick Suggested Questions (Shown when message history is small) */}
-          {messages.length <= 3 && !isLoading && (
-            <div className="px-3 py-2 bg-[#12100E] border-t border-bg-subtle/60 flex flex-wrap gap-1.5 select-none">
-              {QUICK_QUESTIONS.map((q, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  onClick={() => handleSend(q)}
-                  className="px-2 py-1 text-[11px] font-mono text-ink-muted hover:text-ink-primary bg-bg-surface hover:bg-bg-elevated border border-bg-subtle hover:border-accent-copper/60 rounded text-left transition-colors"
-                >
-                  {q}
-                </button>
-              ))}
-            </div>
-          )}
-
           {/* Input Bar */}
-          <div className="p-3 bg-[#1B1714] border-t border-bg-subtle">
+          <div className="p-3 bg-[#1B1714] border-t border-bg-subtle flex-shrink-0 select-none">
             <div className="flex items-center gap-2">
               <input
                 ref={inputRef}
