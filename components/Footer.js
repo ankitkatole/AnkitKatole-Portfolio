@@ -63,13 +63,13 @@ export default function Footer() {
             </button>
           </div>
 
-          {/* Centered Row of Circular Brand & Communication Icon Buttons (as in screenshot) */}
-          <div className="flex items-center gap-3">
+          {/* Centered Row of Circular Brand & Communication Icon Buttons (with flex-wrap for mobile responsiveness) */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 max-w-full">
             <a
               href={personalInfo.links.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full border border-bg-subtle bg-bg-surface hover:bg-bg-elevated hover:border-accent-copper flex items-center justify-center text-ink-muted hover:text-white transition-all shadow-md group"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-bg-subtle bg-bg-surface hover:bg-bg-elevated hover:border-accent-copper flex items-center justify-center text-ink-muted hover:text-white transition-all shadow-md group flex-shrink-0"
               title="GitHub Profile"
               aria-label="GitHub Profile"
             >
@@ -80,7 +80,7 @@ export default function Footer() {
               href={personalInfo.links.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full border border-bg-subtle bg-bg-surface hover:bg-bg-elevated hover:border-accent-copper flex items-center justify-center text-ink-muted hover:text-white transition-all shadow-md group"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-bg-subtle bg-bg-surface hover:bg-bg-elevated hover:border-accent-copper flex items-center justify-center text-ink-muted hover:text-white transition-all shadow-md group flex-shrink-0"
               title="LinkedIn Profile"
               aria-label="LinkedIn Profile"
             >
@@ -91,7 +91,7 @@ export default function Footer() {
               href={personalInfo.links.medium}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full border border-bg-subtle bg-bg-surface hover:bg-bg-elevated hover:border-accent-copper flex items-center justify-center text-ink-muted hover:text-white transition-all shadow-md group"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-bg-subtle bg-bg-surface hover:bg-bg-elevated hover:border-accent-copper flex items-center justify-center text-ink-muted hover:text-white transition-all shadow-md group flex-shrink-0"
               title="Medium Articles (@unemployedEngineer)"
               aria-label="Medium Articles"
             >
@@ -102,7 +102,7 @@ export default function Footer() {
               href={personalInfo.links.leetcode}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full border border-bg-subtle bg-bg-surface hover:bg-bg-elevated hover:border-accent-copper flex items-center justify-center text-ink-muted hover:text-white transition-all shadow-md group"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-bg-subtle bg-bg-surface hover:bg-bg-elevated hover:border-accent-copper flex items-center justify-center text-ink-muted hover:text-white transition-all shadow-md group flex-shrink-0"
               title="LeetCode Profile"
               aria-label="LeetCode Profile"
             >
@@ -113,7 +113,7 @@ export default function Footer() {
               href={personalInfo.links.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full border border-bg-subtle bg-bg-surface hover:bg-bg-elevated hover:border-accent-copper flex items-center justify-center text-ink-muted hover:text-white transition-all shadow-md group"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-bg-subtle bg-bg-surface hover:bg-bg-elevated hover:border-accent-copper flex items-center justify-center text-ink-muted hover:text-white transition-all shadow-md group flex-shrink-0"
               title={`WhatsApp (${personalInfo.phone})`}
               aria-label="Direct WhatsApp Message"
             >
@@ -122,7 +122,7 @@ export default function Footer() {
 
             <a
               href={`tel:${personalInfo.phone}`}
-              className="w-12 h-12 rounded-full border border-bg-subtle bg-bg-surface hover:bg-bg-elevated hover:border-accent-copper flex items-center justify-center text-ink-muted hover:text-white transition-all shadow-md group"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-bg-subtle bg-bg-surface hover:bg-bg-elevated hover:border-accent-copper flex items-center justify-center text-ink-muted hover:text-white transition-all shadow-md group flex-shrink-0"
               title={`Call ${personalInfo.phone}`}
               aria-label="Direct Phone Call"
             >
@@ -131,7 +131,7 @@ export default function Footer() {
 
             <a
               href={`mailto:${personalInfo.email}`}
-              className="w-12 h-12 rounded-full border border-bg-subtle bg-bg-surface hover:bg-bg-elevated hover:border-accent-copper flex items-center justify-center text-ink-muted hover:text-white transition-all shadow-md group"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-bg-subtle bg-bg-surface hover:bg-bg-elevated hover:border-accent-copper flex items-center justify-center text-ink-muted hover:text-white transition-all shadow-md group flex-shrink-0"
               title={`Email ${personalInfo.email}`}
               aria-label="Direct Email"
             >
@@ -146,8 +146,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Minimal Copyright Line (as in screenshot) */}
-        <div className="mt-10 pt-6 border-t border-bg-subtle/50 text-center text-xs font-mono text-ink-faint">
+        {/* Minimal Copyright Line (as in screenshot, with extra mobile bottom clearance for chat widget) */}
+        <div className="mt-10 pt-6 border-t border-bg-subtle/50 text-center text-xs font-mono text-ink-faint pb-14 sm:pb-0">
           © {currentYear} Ankit Katole. All rights reserved.
         </div>
       </div>
