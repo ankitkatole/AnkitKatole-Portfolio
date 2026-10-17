@@ -1,7 +1,7 @@
 import { getAllPosts } from '../lib/blog';
 
 export default function sitemap() {
-  const baseUrl = 'https://ankitkatole.dev';
+  const baseUrl = 'https://ankit-katole-portfolio.vercel.app';
   const publishedPosts = getAllPosts({ includeDrafts: false });
 
   const postUrls = publishedPosts.map((post) => ({

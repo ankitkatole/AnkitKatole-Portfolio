@@ -35,7 +35,7 @@ Ankit Katole is a backend-focused Software Engineer at Capgemini specializing in
 - **Frontend & Web**: Next.js, React, HTML5, CSS3, TailwindCSS
 
 ## Verified Links & Channels
-- Portfolio Website: https://ankitkatole.dev
+- Portfolio Website: https://ankit-katole-portfolio.vercel.app
 - GitHub: https://github.com/ankitkatole
 - LinkedIn: https://www.linkedin.com/in/ankitkatole
 - LeetCode: https://leetcode.com/u/ankitkatole

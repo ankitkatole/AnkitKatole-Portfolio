@@ -7,10 +7,15 @@ export default function robots() {
         disallow: ['/api/']
       },
       {
+        userAgent: ['Googlebot', 'Googlebot-Image', 'Bingbot'],
+        allow: '/'
+      },
+      {
         userAgent: ['GPTBot', 'ChatGPT-User', 'ClaudeBot', 'PerplexityBot', 'Applebot-Extended'],
         allow: '/'
       }
     ],
-    sitemap: 'https://ankitkatole.dev/sitemap.xml'
+    sitemap: 'https://ankit-katole-portfolio.vercel.app/sitemap.xml',
+    host: 'https://ankit-katole-portfolio.vercel.app'
   };
 }

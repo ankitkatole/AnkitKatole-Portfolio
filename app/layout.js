@@ -10,8 +10,15 @@ import SmoothScroll from '../components/SmoothScroll';
 import ChatBot from '../components/ChatBot';
 import { personalInfo } from '../lib/data';
 
+export const viewport = {
+  themeColor: '#141210',
+  colorScheme: 'dark',
+  width: 'device-width',
+  initialScale: 1
+};
+
 export const metadata = {
-  metadataBase: new URL('https://ankitkatole.dev'),
+  metadataBase: new URL('https://ankit-katole-portfolio.vercel.app'),
   title: {
     default: 'Ankit Katole - Software Engineer | Java, Spring Boot & Distributed Systems',
     template: '%s | Ankit Katole'
@@ -20,23 +27,29 @@ export const metadata = {
     'Software Engineer at Capgemini specializing in Java 8+, Spring Boot microservices, Kafka event streaming, and REST API architecture. Portfolio, technical projects, and engineering writing.',
   keywords: [
     'Ankit Katole',
-    'Software Engineer',
-    'Java Developer',
+    'Ankit Katole Portfolio',
+    'Ankit Katole Software Engineer',
+    'Ankit Katole Capgemini',
+    'Java Software Engineer',
     'Spring Boot Developer',
     'Backend Engineer',
-    'Microservices',
-    'REST API',
-    'Apache Kafka',
-    'MySQL',
+    'Microservices Architecture',
+    'Apache Kafka Developer',
+    'Distributed Systems Engineer',
+    'REST API Architecture',
+    'MySQL Optimization',
     'Spring AI',
-    'Capgemini Software Engineer'
+    'Capgemini Engineer'
   ],
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || 'google-site-verification-pending'
+  },
   authors: [{ name: 'Ankit Katole', url: 'https://github.com/ankitkatole' }],
   creator: 'Ankit Katole',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://ankitkatole.dev',
+    url: 'https://ankit-katole-portfolio.vercel.app',
     title: 'Ankit Katole - Software Engineer | Java, Spring Boot & Microservices',
     description:
       'Backend-focused Software Engineer engineering resilient microservices, high-throughput APIs, and enterprise order management systems.',
@@ -68,7 +81,7 @@ export const metadata = {
     }
   },
   alternates: {
-    canonical: 'https://ankitkatole.dev'
+    canonical: 'https://ankit-katole-portfolio.vercel.app'
   }
 };
 
@@ -78,9 +91,11 @@ export default function RootLayout({ children }) {
     '@graph': [
       {
         '@type': 'Person',
-        '@id': 'https://ankitkatole.dev/#person',
+        '@id': 'https://ankit-katole-portfolio.vercel.app/#person',
         name: personalInfo.name,
         jobTitle: personalInfo.title,
+        description: 'Software Engineer at Capgemini specializing in Java 8+, Spring Boot microservices, Kafka event streaming, and resilient distributed architectures.',
+        image: 'https://i.postimg.cc/MpssQPSL/image.png',
         telephone: personalInfo.phone,
         email: personalInfo.email,
         worksFor: {
@@ -91,7 +106,7 @@ export default function RootLayout({ children }) {
           '@type': 'CollegeOrUniversity',
           name: 'G H Raisoni College of Engineering and Management'
         },
-        url: 'https://ankitkatole.dev',
+        url: 'https://ankit-katole-portfolio.vercel.app',
         sameAs: [
           personalInfo.links.github,
           personalInfo.links.linkedin,
@@ -115,21 +130,21 @@ export default function RootLayout({ children }) {
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://ankitkatole.dev/#website',
-        url: 'https://ankitkatole.dev',
+        '@id': 'https://ankit-katole-portfolio.vercel.app/#website',
+        url: 'https://ankit-katole-portfolio.vercel.app',
         name: 'Ankit Katole - Software Engineer',
         description: 'Portfolio, verified engineering projects, and research publications of Ankit Katole.',
         publisher: {
-          '@id': 'https://ankitkatole.dev/#person'
+          '@id': 'https://ankit-katole-portfolio.vercel.app/#person'
         }
       },
       {
         '@type': 'ProfilePage',
-        '@id': 'https://ankitkatole.dev/#profilepage',
-        url: 'https://ankitkatole.dev',
+        '@id': 'https://ankit-katole-portfolio.vercel.app/#profilepage',
+        url: 'https://ankit-katole-portfolio.vercel.app',
         name: 'Ankit Katole Engineering Profile',
         mainEntity: {
-          '@id': 'https://ankitkatole.dev/#person'
+          '@id': 'https://ankit-katole-portfolio.vercel.app/#person'
         }
       },
       {
@@ -140,7 +155,7 @@ export default function RootLayout({ children }) {
         author: [
           { '@type': 'Person', name: 'Mrs. Hemlata Kosare' },
           { '@type': 'Person', name: 'Akshat Tomar' },
-          { '@type': 'Person', name: 'Ankit Katole', url: 'https://ankitkatole.dev' },
+          { '@type': 'Person', name: 'Ankit Katole', url: 'https://ankit-katole-portfolio.vercel.app' },
           { '@type': 'Person', name: 'Jayesh Kahate' },
           { '@type': 'Person', name: 'Jitesh Varade' },
           { '@type': 'Person', name: 'Gajendra Naphade' }
@@ -167,7 +182,7 @@ export default function RootLayout({ children }) {
         headline: 'The Complete Spring MVC Request-Response Lifecycle Explained',
         name: 'The Complete Spring MVC Request-Response Lifecycle Explained',
         author: {
-          '@id': 'https://ankitkatole.dev/#person'
+          '@id': 'https://ankit-katole-portfolio.vercel.app/#person'
         },
         publisher: {
           '@type': 'Organization',
@@ -183,6 +198,24 @@ export default function RootLayout({ children }) {
           'Java'
         ],
         description: 'An end-to-end architectural deep-dive tracing an HTTP request through Tomcat, the Servlet Filter Chain, DispatcherServlet orchestration, HandlerMappings, Interceptors, Argument Resolvers, and HttpMessageConverters.'
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': 'https://ankit-katole-portfolio.vercel.app/#breadcrumbs',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://ankit-katole-portfolio.vercel.app'
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Engineering Journal',
+            item: 'https://ankit-katole-portfolio.vercel.app/blog'
+          }
+        ]
       }
     ]
   };

@@ -65,7 +65,7 @@ export default function ArticlePage({ params }) {
     author: {
       '@type': 'Person',
       name: personalInfo.name,
-      url: 'https://ankitkatole.dev'
+      url: 'https://ankit-katole-portfolio.vercel.app'
     },
     publisher: {
       '@type': 'Person',
