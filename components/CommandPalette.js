@@ -34,6 +34,15 @@ export default function CommandPalette() {
       action: () => scrollTo('projects')
     },
     {
+      category: 'AI Assistant',
+      label: 'Chat with AI Assistant (Spring Boot RAG)',
+      shortcut: 'AI',
+      action: () => {
+        setIsOpen(false);
+        window.dispatchEvent(new CustomEvent('open-chat'));
+      }
+    },
+    {
       category: 'Diagnostics',
       label: 'Open System Telemetry Diagnostics',
       shortcut: '`',

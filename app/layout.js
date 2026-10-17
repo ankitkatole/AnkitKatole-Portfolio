@@ -7,6 +7,7 @@ import VoxelBackground from '../components/VoxelBackground';
 import RobloxAvatar from '../components/RobloxAvatar';
 import CookieBanner from '../components/CookieBanner';
 import SmoothScroll from '../components/SmoothScroll';
+import ChatBot from '../components/ChatBot';
 import { personalInfo } from '../lib/data';
 
 export const metadata = {
@@ -112,6 +113,7 @@ export default function RootLayout({ children }) {
         <RobloxAvatar />
         <CookieBanner />
         <SmoothScroll />
+        <ChatBot />
       </body>
     </html>
   );

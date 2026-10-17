@@ -4,8 +4,8 @@ import { useState, useEffect, useRef } from 'react';
 
 const MESSAGES = [
   'Welcome to Ankit\'s engineering portfolio.',
+  'Click Ask AI to chat with my Spring Boot RAG backend.',
   'Double-click to collapse into a minimal block.',
-  'Interactive node: drag me anywhere on your screen.',
   'All backend services are 100% operational.',
   'Engineered with Java, Spring Boot, and RAG.',
   'Available for backend & distributed engineering.'
@@ -147,9 +147,10 @@ export default function RobloxAvatar() {
               setIsFolded(false);
             } else {
               setMsgIndex((prev) => (prev + 1) % MESSAGES.length);
+              window.dispatchEvent(new CustomEvent('open-chat'));
             }
           }}
-          title="Click to interact"
+          title="Click to open AI Chatbot"
         >
           <span>{currentMessage}</span>
           {/* Bubble Tail */}
