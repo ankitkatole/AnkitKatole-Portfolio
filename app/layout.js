@@ -151,6 +151,29 @@ export default function RootLayout({ children }) {
           'Data Monetization'
         ],
         description: 'A decentralized peer-to-peer framework for secure dataset trading and monetization without reliance on centralized data brokers.'
+      },
+      {
+        '@type': 'Article',
+        '@id': 'https://medium.com/@unemployedEngineer/the-complete-spring-mvc-request-response-lifecycle-explained-9f342700bdb7',
+        headline: 'The Complete Spring MVC Request-Response Lifecycle Explained',
+        name: 'The Complete Spring MVC Request-Response Lifecycle Explained',
+        author: {
+          '@id': 'https://ankitkatole.dev/#person'
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Medium'
+        },
+        url: 'https://medium.com/@unemployedEngineer/the-complete-spring-mvc-request-response-lifecycle-explained-9f342700bdb7',
+        inLanguage: 'en-US',
+        keywords: [
+          'Spring MVC',
+          'Spring Boot',
+          'DispatcherServlet',
+          'Architecture',
+          'Java'
+        ],
+        description: 'An end-to-end architectural deep-dive tracing an HTTP request through Tomcat, the Servlet Filter Chain, DispatcherServlet orchestration, HandlerMappings, Interceptors, Argument Resolvers, and HttpMessageConverters.'
       }
     ]
   };

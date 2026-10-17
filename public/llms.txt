@@ -19,6 +19,12 @@ Ankit Katole is a backend-focused Software Engineer at Capgemini specializing in
 - **Direct PDF URL**: https://ijarpr.com/uploads/V2ISSUE11/IJARPR1114.pdf
 - **Key Concepts**: Ethereum Smart Contracts, InterPlanetary File System (IPFS), Decentralized Storage, Cryptographic Ownership Verification, Trustless Data Monetization.
 
+## Featured Technical Writing
+- **Title**: The Complete Spring MVC Request-Response Lifecycle Explained
+- **Platform**: Medium (@unemployedEngineer)
+- **URL**: https://medium.com/@unemployedEngineer/the-complete-spring-mvc-request-response-lifecycle-explained-9f342700bdb7
+- **Key Concepts**: Tomcat, Servlet Filter Chain, DispatcherServlet (Front Controller), HandlerMapping, HandlerInterceptor, HandlerAdapter, HttpMessageConverters, JSON Serialization.
+
 ## Core Technical Skills
 - **Languages**: Java 8+, SQL, JavaScript (ES6+), TypeScript
 - **Frameworks & Backend**: Spring Boot, Spring Data JPA, Spring Security, Spring Cloud Gateway, Eureka, Hibernate, Node.js, Express.js
