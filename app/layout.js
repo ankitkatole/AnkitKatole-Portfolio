@@ -27,9 +27,13 @@ export const metadata = {
     'Software Engineer at Capgemini specializing in Java 8+, Spring Boot microservices, Kafka event streaming, and REST API architecture. Portfolio, technical projects, and engineering writing.',
   keywords: [
     'Ankit Katole',
+    'Ankit Diliprao Katole',
+    'Ankit D Katole',
     'Ankit Katole Portfolio',
     'Ankit Katole Software Engineer',
     'Ankit Katole Capgemini',
+    'Ankit Katole Developer',
+    'Ankit Katole Resume',
     'Java Software Engineer',
     'Spring Boot Developer',
     'Backend Engineer',
@@ -94,6 +98,7 @@ export default function RootLayout({ children }) {
         '@type': 'Person',
         '@id': 'https://ankit-katole-portfolio.vercel.app/#person',
         name: personalInfo.name,
+        alternateName: ['Ankit Diliprao Katole', 'Ankit D. Katole', 'Ankit'],
         jobTitle: personalInfo.title,
         description: 'Software Engineer at Capgemini specializing in Java 8+, Spring Boot microservices, Kafka event streaming, and resilient distributed architectures.',
         image: 'https://i.postimg.cc/MpssQPSL/image.png',
@@ -107,6 +112,32 @@ export default function RootLayout({ children }) {
           '@type': 'CollegeOrUniversity',
           name: 'G H Raisoni College of Engineering and Management'
         },
+        hasCredential: [
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'Capgemini Internship Letter',
+            recognizedBy: { '@type': 'Organization', name: 'Capgemini Technology Services' },
+            url: 'https://ankit-katole-portfolio.vercel.app/certificates/capgemini-internship-letter.jpg'
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'Capgemini Exceller Edge Certificate',
+            recognizedBy: { '@type': 'Organization', name: 'Capgemini' },
+            url: 'https://ankit-katole-portfolio.vercel.app/certificates/capgemini-exceller-certificate.jpg'
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'MagnifyX Experience Certificate',
+            recognizedBy: { '@type': 'Organization', name: 'MAGNIFY X LIMITED' },
+            url: 'https://ankit-katole-portfolio.vercel.app/certificates/magnifyx-experience-certificate.jpg'
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'MagnifyX Internship Completion Certificate',
+            recognizedBy: { '@type': 'Organization', name: 'MAGNIFY X LIMITED' },
+            url: 'https://ankit-katole-portfolio.vercel.app/certificates/magnifyx-completion-certificate.jpg'
+          }
+        ],
         url: 'https://ankit-katole-portfolio.vercel.app',
         sameAs: [
           personalInfo.links.github,

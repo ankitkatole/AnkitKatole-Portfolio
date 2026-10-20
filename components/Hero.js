@@ -21,6 +21,7 @@ export default function Hero() {
         {/* Primary Typographic Composition with Rich Copper Color Mix */}
         <div className="max-w-4xl space-y-4 sm:space-y-5 animate-in fade-in slide-in-from-bottom-3 duration-600">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink-primary leading-[1.14]">
+            <span className="sr-only">Ankit Katole — Software Engineer — </span>
             Building robust backend systems with{' '}
             <span className="relative inline-block text-accent-copper font-extrabold pb-1">
               Java & Spring Boot
