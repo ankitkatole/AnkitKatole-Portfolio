@@ -117,25 +117,25 @@ export default function RootLayout({ children }) {
             '@type': 'EducationalOccupationalCredential',
             name: 'Capgemini Internship Letter',
             recognizedBy: { '@type': 'Organization', name: 'Capgemini Technology Services' },
-            url: 'https://ankit-katole-portfolio.vercel.app/certificates/capgemini-internship-letter.jpg'
+            url: 'https://ankit-katole-portfolio.vercel.app/certificates/capgemini-internship-letter.png'
           },
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'Capgemini Exceller Edge Certificate',
             recognizedBy: { '@type': 'Organization', name: 'Capgemini' },
-            url: 'https://ankit-katole-portfolio.vercel.app/certificates/capgemini-exceller-certificate.jpg'
+            url: 'https://ankit-katole-portfolio.vercel.app/certificates/capgemini-exceller-certificate.png'
           },
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'MagnifyX Experience Certificate',
             recognizedBy: { '@type': 'Organization', name: 'MAGNIFY X LIMITED' },
-            url: 'https://ankit-katole-portfolio.vercel.app/certificates/magnifyx-experience-certificate.jpg'
+            url: 'https://ankit-katole-portfolio.vercel.app/certificates/magnifyx-experience-certificate.png'
           },
           {
             '@type': 'EducationalOccupationalCredential',
             name: 'MagnifyX Internship Completion Certificate',
             recognizedBy: { '@type': 'Organization', name: 'MAGNIFY X LIMITED' },
-            url: 'https://ankit-katole-portfolio.vercel.app/certificates/magnifyx-completion-certificate.jpg'
+            url: 'https://ankit-katole-portfolio.vercel.app/certificates/magnifyx-completion-certificate.png'
           }
         ],
         url: 'https://ankit-katole-portfolio.vercel.app',
