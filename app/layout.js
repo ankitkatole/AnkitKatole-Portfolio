@@ -136,6 +136,30 @@ export default function RootLayout({ children }) {
             name: 'MagnifyX Internship Completion Certificate',
             recognizedBy: { '@type': 'Organization', name: 'MAGNIFY X LIMITED' },
             url: 'https://ankit-katole-portfolio.vercel.app/certificates/magnifyx-completion-certificate.png'
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'GitHub Certified: Agentic AI Developer',
+            recognizedBy: { '@type': 'Organization', name: 'Microsoft' },
+            url: 'https://learn.microsoft.com/en-us/users/ankitdilipraokatole-1585/credentials/65b98376581860cb'
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'Java (Basic) Certificate',
+            recognizedBy: { '@type': 'Organization', name: 'HackerRank' },
+            url: 'https://www.hackerrank.com/certificates/92521506da35'
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'Backend Web Development Project Achievement',
+            recognizedBy: { '@type': 'Organization', name: 'Upskill Mafia' },
+            url: 'https://ankit-katole-portfolio.vercel.app/certificates/UM_Hackathon_Certificate.jpg'
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            name: 'Peer Teaching Certification (DSA & C Language)',
+            recognizedBy: { '@type': 'Organization', name: 'G H Raisoni College of Engineering and Management' },
+            url: 'https://ankit-katole-portfolio.vercel.app/certificates/Peer_Teaching.jpg'
           }
         ],
         url: 'https://ankit-katole-portfolio.vercel.app',

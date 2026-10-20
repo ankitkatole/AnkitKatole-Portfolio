@@ -123,6 +123,13 @@ export default function Navbar() {
           </button>
           <button
             type="button"
+            onClick={() => scrollToSection('certifications')}
+            className="transition-colors duration-150 hover:text-ink-primary cursor-pointer text-sm font-medium"
+          >
+            Certifications
+          </button>
+          <button
+            type="button"
             onClick={() => scrollToSection('about')}
             className="transition-colors duration-150 hover:text-ink-primary cursor-pointer text-sm font-medium"
           >
@@ -276,6 +283,13 @@ export default function Navbar() {
               className="text-left text-ink-muted hover:text-ink-primary py-1 transition-colors"
             >
               Skills
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection('certifications')}
+              className="text-left text-ink-muted hover:text-ink-primary py-1 transition-colors"
+            >
+              Certifications
             </button>
             <button
               type="button"
